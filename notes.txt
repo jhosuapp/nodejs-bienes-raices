@@ -1,0 +1,30 @@
+DEPENDENCIAS EN EL PACKAGE.JSON
+
+Hay dos tipos de dependencias, están las dependencias que son necesarias solo en local y las dependecias que son necesarias 
+en local y en producción, las dependencias que son netamente necesarias para el local se crearan dentro del package.json como una dependencia de desarrollo local, lo cual
+nos indica que en la publicación del proyecto, esta dependencia no ira con nuestro compilado
+
+DEPENDECIAS DE DESARROLLO
+
+-Para indicicar que una dependencia es netamente de desarrollo, se debe agregar una acción al momento de instalar nuestro paquete o dependencia, esta acción es "-D" o "--save-dev" 
+-Una vez instalada esta dependecia dentro de nuestro package.json se creara una sección llamada devDependencies y dentro de esta sección se añadira el paquete, lo cual 
+al momento de hacer la publicación de nuestro proyecto en un entorno de producción, el servidor ignorara estas devDependencies y no las instalarará
+
+MANERAS DE IMPORTAR NUESTROS PAQUETES
+
+-por defecto node nos permite importar modulos con la sintaxis de commonjs, en general solo permite importar modulos con commonjs o esm, si se quiere importar un modulo con 
+la sintaxis de esm, se debe indicar en el package.json que es de tipo modulo (type: "module");
+
+-Al importar una función de origen propio, se debe añadir la extensión del archivo, si no se hace el código se rompe
+
+DEPENDENCIAS UTILES
+
+nodemon - esta dependecia va estar actualizando los cambios en tiempo real en la consola, solo se debe añadir en nuestros scripts junto a nuestro archivo a ejecutar
+
+
+//DISTINTO METODOS DE EXPRESS
+
+GET - utilizado para mostrar información
+POST - utilizado para enviar información
+PUT / PATCH - utilizado para actualizar información
+DELETE - utilizado para eliminar información
