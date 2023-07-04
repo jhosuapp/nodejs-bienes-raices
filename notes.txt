@@ -28,3 +28,22 @@ GET - utilizado para mostrar información
 POST - utilizado para enviar información
 PUT / PATCH - utilizado para actualizar información
 DELETE - utilizado para eliminar información
+
+
+
+//MVC
+
+M = MODEL
+El "MODEL" es el encargado de todas las interacciones en la base de datos, obtener datos, actualizarlos o eliminarlos
+El "MODEL" obtiene la información de la base de datos pero no la muestra, el encargado de mostrarlo es la vista
+El "MODEL" el modelo tampoco es el que se encarga de actualizar la información directamente, es el controlador el que se encarga de llamarlo
+
+V = VIEW
+El "VIEW" se encarga de todo lo que se ve en pantalla
+Nuestra vista pordría ser React, Vue, Angular etc.. en este caso vamos a estar usando PUG, por lo tanto, PUG sera nuestra vista
+
+C = CONTROLLER
+El "CONTROLLER" permite la comunicación entre el modelo y la vista
+
+Usar MVC no hará que el performance de nuestro código sea mejor pero sí ayudará a que nuestro código sea fácil de mantener y de entender 
+

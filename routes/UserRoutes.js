@@ -1,22 +1,10 @@
 import express from 'express';
+import { formLogin, formRegister } from '../controllers/UserController.js';
 
 const router = express.Router();
 //PAGINA DE INICIO
-router.get('/', function(req, res){
-    res.json(
-        {
-            mensaje: "hola mundo",
-            res: "respuesta",
-        }
-    );
-});
-//NOSOTROS
-router.get('/nosotros', function(req, res){
-    res.json(
-        {
-            mensaje: "página de nosotros"
-        }
-    );
-});
+router.get('/login', formLogin);
+router.get('/register', formRegister);
+
 
 export default router
