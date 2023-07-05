@@ -1,9 +1,20 @@
-//IMPORTANDO DEPENDENCIAS DE CON SINTAXIS DE NODE
+//IMPORTANDO DEPENDENCIA
 import express from 'express';
+//RUTAS
 import userRoutes from './routes/UserRoutes.js';
+//CONEXIONES
+import dataBase from './config/db.js';
 
 //CREAR LA APP
 const app = express();
+
+//CONEXION A LA BASE DE DATOS
+try {
+    await dataBase.authenticate();
+    console.log('conexion correcta');
+} catch (error) {
+    console.log(error);
+}
 
 //HABILITAR PUG
 app.set('view engine', 'pug');
