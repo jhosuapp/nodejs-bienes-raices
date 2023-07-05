@@ -1,0 +1,8 @@
+@use '../base/functions' as fun;
+@use '../base/mixin' as mix;
+
+@media(max-width: fun.breakpoints('ipad-small')){
+    section{
+        background-color: fun.color('black');
+    }
+}
