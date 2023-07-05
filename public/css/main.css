@@ -1,23 +1,23 @@
 @font-face {
-  font-family: "nombre fuente";
-  src: url("url de la fuente");
+  font-family: "roboto";
+  src: url("https://fonts.cdnfonts.com/s/15383/WorkSans-Regular.woff");
   font-weight: 400;
   font-display: swap;
 }
 @font-face {
-  font-family: "nombre fuente";
-  src: url("url de la fuente");
+  font-family: "roboto";
+  src: url("https://fonts.cdnfonts.com/s/15383/WorkSans-Medium.woff");
   font-weight: 500;
   font-display: swap;
 }
 @font-face {
-  font-family: "nombre fuente";
+  font-family: "roboto";
   src: url("url de la fuente");
   font-weight: 700;
   font-display: swap;
 }
 @font-face {
-  font-family: "nombre fuente";
+  font-family: "roboto";
   src: url("url de la fuente");
   font-weight: 800;
   font-display: swap;
@@ -49,7 +49,7 @@ input,
 input::placeholder,
 ::before,
 ::after {
-  font-family: "nombre de la fuente", sans-serif;
+  font-family: "roboto", sans-serif;
   font-weight: 400;
 }
 
@@ -71,6 +71,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #d4dbdf;
+}
+
 input[type=search]::-webkit-search-decoration,
 input[type=search]::-webkit-search-cancel-button,
 input[type=search]::-webkit-search-results-button,
@@ -78,10 +82,102 @@ input[type=search]::-webkit-search-results-decoration {
   display: none;
 }
 
+input[type=text],
+input[type=password],
+input[type=email] {
+  height: 5rem;
+  outline: inherit;
+  border: 0.2rem solid #EFEFEF;
+  border-radius: 0.5rem;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  transition: 0.3s ease all;
+  width: 100%;
+}
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=email]:focus {
+  border: 0.2rem solid #CECFC9;
+}
+
+label {
+  font-size: 1.5rem;
+  color: #276E90;
+  margin-bottom: 0.5rem;
+  display: block;
+  text-align: left;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+}
+.container--center {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-general {
+  padding: 3rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem 0 #0A3143;
+  background-color: #fff;
+}
+.form-general .block-input {
+  margin-bottom: 2rem;
+}
+.form-general .block-input:last-child {
+  margin-bottom: 0;
+}
+
+.container-form {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  position: relative;
+}
+.container-form h1 {
+  margin-bottom: 2rem;
+}
+
 @media (max-width: 768px) {
-  section {
-    background-color: #000;
+  .form-general {
+    padding: 2rem 1.5rem;
   }
+}
+.ctm-fonts h1 {
+  font-size: 3rem;
+}
+.ctm-fonts--center {
+  text-align: center;
+}
+
+.btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  text-align: center;
+  background-color: #276E90;
+  color: #fff;
+  border-radius: 0.5rem;
+  border: none;
+  outline: inherit;
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.5s ease background-color;
+}
+.btn:hover {
+  background-color: #0A3143;
 }
 
 /*# sourceMappingURL=main.css.map */

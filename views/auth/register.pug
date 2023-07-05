@@ -1,5 +1,21 @@
 extends ../layout/index
 
 block content
-    div 
-        p.text-center.text-6xl=page
+    section.container.container--center
+        article.ctm-fonts.container-form.ctm-fonts--center
+            h1=page
+            form.form-general
+                div.block-input
+                    label(for="name") Nombre
+                    input#name(type="text" placeholder="Nombre" name="name")
+                div.block-input
+                    label(for="email") Email
+                    input#email(type="email" placeholder="Email" name="email")
+                div.block-input
+                    label(for="password") Contraseña
+                    input#password(type="password" placeholder="Contraseña" name="password")
+                div.block-input
+                    label(for="verifyPass") Repetir contraseña
+                    input#verifyPass(type="password" placeholder="Repetir contraseña" name="verifyPass")
+                div.block-input
+                    button.btn(type="submit" value="Crear cuenta")=page

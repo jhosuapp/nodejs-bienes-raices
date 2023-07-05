@@ -1,0 +1,22 @@
+@use '../base/functions' as fun;
+@use '../base/mixin' as mix;
+
+.btn{
+    width: 100%;
+    @include mix.flex();
+    height: 5rem;
+    text-align: center;
+    background-color: fun.color('primary');
+    color: fun.color('white');
+    border-radius: .5rem;
+    border: none;
+    outline: inherit;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .5s ease background-color;
+    &:hover{
+        background-color: fun.color('tertiary');
+    }
+}

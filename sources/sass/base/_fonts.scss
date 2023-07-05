@@ -1,26 +1,26 @@
 @font-face {
-    font-family: 'nombre fuente';
-    src: url("url de la fuente");
+    font-family: 'roboto';
+    src: url("https://fonts.cdnfonts.com/s/15383/WorkSans-Regular.woff");
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'nombre fuente';
-    src: url("url de la fuente");
+    font-family: 'roboto';
+    src: url("https://fonts.cdnfonts.com/s/15383/WorkSans-Medium.woff");
     font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'nombre fuente';
+    font-family: 'roboto';
     src: url("url de la fuente");
     font-weight: 700;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'nombre fuente';
+    font-family: 'roboto';
     src: url("url de la fuente");
     font-weight: 800;
     font-display: swap;
@@ -53,7 +53,7 @@ input,
 input::placeholder,
 ::before,
 ::after {
-    font-family: 'nombre de la fuente', sans-serif;
+    font-family: 'roboto', sans-serif;
     font-weight: 400;
 }
 
