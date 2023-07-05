@@ -4,7 +4,7 @@
 .btn{
     width: 100%;
     @include mix.flex();
-    height: 5rem;
+    height: 4.8rem;
     text-align: center;
     background-color: fun.color('primary');
     color: fun.color('white');

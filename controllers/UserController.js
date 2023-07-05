@@ -10,5 +10,11 @@ const formRegister = (req, res)=>{
     });
 }
 
+const formPassword = (req, res)=>{
+    res.render('auth/recover-password', {
+        page: 'Recuperar contraseña'
+    });
+}
 
-export { formLogin, formRegister }
+
+export { formLogin, formRegister, formPassword}

@@ -20,6 +20,8 @@ la sintaxis de esm, se debe indicar en el package.json que es de tipo modulo (ty
 DEPENDENCIAS UTILES
 
 nodemon - esta dependecia va estar actualizando los cambios en tiempo real en la consola, solo se debe añadir en nuestros scripts junto a nuestro archivo a ejecutar
+sequelize - Es un ORM, el cual estamos usando en este proyecto
+mysql2 - El gestor de bases de datos
 
 
 //DISTINTO METODOS DE EXPRESS

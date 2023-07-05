@@ -135,10 +135,21 @@ label {
 .form-general .block-input:last-child {
   margin-bottom: 0;
 }
+.form-general .block-input--flex {
+  display: flex;
+  justify-content: space-between;
+}
+.form-general .block-input--flex a {
+  color: #276E90;
+  transition: 0.3s ease color;
+}
+.form-general .block-input--flex a:hover {
+  color: #0A3143;
+}
 
 .container-form {
   width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   margin: auto;
   position: relative;
 }
@@ -163,7 +174,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5rem;
+  height: 4.8rem;
   text-align: center;
   background-color: #276E90;
   color: #fff;

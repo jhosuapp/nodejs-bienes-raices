@@ -10,12 +10,23 @@
         &:last-child{
             margin-bottom: 0;
         }
+        &--flex{
+            display: flex;
+            justify-content: space-between;
+            a{
+                color: fun.color('primary');
+                transition: .3s ease color;
+                &:hover{
+                    color: fun.color('tertiary');
+                }
+            }
+        }
     }
 }
 
 .container-form{
     width: 100%;
-    max-width: 400px;
+    max-width: 450px;
     margin: auto;
     position: relative;
     h1{

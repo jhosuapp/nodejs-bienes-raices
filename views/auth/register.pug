@@ -17,5 +17,8 @@ block content
                 div.block-input
                     label(for="verifyPass") Repetir contraseña
                     input#verifyPass(type="password" placeholder="Repetir contraseña" name="verifyPass")
+                div.block-input.block-input--flex
+                    a(href="/auth/register") ¿Ya tienes una cuenta? Iniciar sesión 
+                    a(href="/auth/recover-password") Olvide mi contraseña
                 div.block-input
                     button.btn(type="submit" value="Crear cuenta")=page

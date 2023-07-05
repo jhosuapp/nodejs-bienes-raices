@@ -11,5 +11,8 @@ block content
                 div.block-input
                     label(for="password") Contraseña
                     input#password(type="password" placeholder="Contraseña" name="password")
+                div.block-input.block-input--flex
+                    a(href="/auth/register") ¿No tienes una cuenta? crear cuenta 
+                    a(href="/auth/recover-password") Olvide mi contraseña
                 div.block-input
                     button.btn(type="submit" value="Crear cuenta")=page
