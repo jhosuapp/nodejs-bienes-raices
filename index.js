@@ -3,15 +3,21 @@ import express from 'express';
 //RUTAS
 import userRoutes from './routes/UserRoutes.js';
 //CONEXIONES
-import dataBase from './config/db.js';
+import dataBase from './config/dataBase.js';
 
 //CREAR LA APP
 const app = express();
 
+//HABILITAR LECTURA DE DATOS EN FORMULARIOS
+app.use( express.urlencoded({
+    extended: true
+}));
+
 //CONEXION A LA BASE DE DATOS
 try {
     await dataBase.authenticate();
-    console.log('conexion correcta');
+    await dataBase.sync();
+    // dataBase.sync();
 } catch (error) {
     console.log(error);
 }

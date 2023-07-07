@@ -4,7 +4,7 @@ block content
     section.container.container--center
         article.ctm-fonts.container-form.ctm-fonts--center
             h1=page
-            form.form-general
+            form.form-general(method="POST" action="/auth/register")
                 div.block-input
                     label(for="name") Nombre
                     input#name(type="text" placeholder="Nombre" name="name")

@@ -5,7 +5,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
     "server": "nodemon index.js",
     "sass": "sass --watch ./sources/sass/main.scss ./public/css/main.css"
   },
