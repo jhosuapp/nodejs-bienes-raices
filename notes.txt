@@ -19,11 +19,12 @@ la sintaxis de esm, se debe indicar en el package.json que es de tipo modulo (ty
 
 DEPENDENCIAS UTILES
 
-nodemon - esta dependecia va estar actualizando los cambios en tiempo real en la consola, solo se debe añadir en nuestros scripts junto a nuestro archivo a ejecutar
+nodemon (D) - esta dependecia va estar actualizando los cambios en tiempo real en la consola, solo se debe añadir en nuestros scripts junto a nuestro archivo a ejecutar
 sequelize - Es un ORM, el cual estamos usando en este proyecto
 mysql2 - El gestor de bases de datos
-dotenv - Nos permite configurar o usar las variables de entorno en nuestro código.
+dotenv (D) - Nos permite configurar o usar las variables de entorno en nuestro código.
 express-validator - Nos permite validar formularios desde el backend
+bcrypt - Nos permite encriptar datos
 
 
 //DISTINTO METODOS DE EXPRESS

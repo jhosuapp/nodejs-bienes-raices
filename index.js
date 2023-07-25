@@ -3,7 +3,7 @@ import express from 'express';
 //RUTAS
 import userRoutes from './routes/UserRoutes.js';
 //CONEXIONES
-import dataBase from './config/dataBase.js';
+import dataBase from './config/DataBase.js';
 
 //CREAR LA APP
 const app = express();

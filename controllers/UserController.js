@@ -49,10 +49,15 @@ const registerData = async(req, res)=>{
         });
     }
 
-    return;
+    const user = await User.create({
+        name,
+        email,
+        password,
+        token: 123
+    });
 
-    const user = await User.create(req.body);
     res.json(user);
+
 }
 
 //RENDERIZACIÓN DE LA PÁGINA DE RECUPERAR CONTRASEÑA

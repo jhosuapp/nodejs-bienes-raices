@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
-import dataBase from '../config/dataBase.js';
+import bcrypt from 'bcrypt';
+import dataBase from '../config/DataBase.js';
 
 
 const User = dataBase.define('users',{ //INDICAMOS EL NOMBRE DE LA TABLA COMO PRIMER PARAMETRO
@@ -17,6 +18,13 @@ const User = dataBase.define('users',{ //INDICAMOS EL NOMBRE DE LA TABLA COMO PR
     },
     token: DataTypes.STRING,
     confirmation: DataTypes.BOOLEAN
+},{
+    hooks: {
+        beforeCreate: async function(user){
+            const salt = await bcrypt.genSalt(10);
+            user.password = await bcrypt.hash( user.password, salt );
+        }
+    }
 });
 
 export default User;
