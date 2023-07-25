@@ -191,4 +191,12 @@ label {
   background-color: #0A3143;
 }
 
+.msg-error {
+  width: 100%;
+  padding: 5px 10px;
+  background-color: rgb(185, 60, 60);
+  color: #fff;
+  margin-bottom: 5px;
+}
+
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,9 @@
+@use '../base/functions' as fun;
+
+.msg-error{
+    width: 100%;
+    padding: 5px 10px;
+    background-color: fun.color('error');
+    color: fun.color('white');
+    margin-bottom: 5px;
+}

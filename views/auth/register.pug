@@ -4,13 +4,20 @@ block content
     section.container.container--center
         article.ctm-fonts.container-form.ctm-fonts--center
             h1=page
-            form.form-general(method="POST" action="/auth/register")
+
+            <!--MENSAJES DE ERROR-->
+            if(errors)
+                div(class="")
+                    each error in errors
+                        p(class="msg-error")=error.msg
+
+            form.form-general(method="POST" action="/auth/register" noValidate)
                 div.block-input
                     label(for="name") Nombre
-                    input#name(type="text" placeholder="Nombre" name="name")
+                    input#name(type="text" placeholder="Nombre" name="name" value=user ? user.name : '') 
                 div.block-input
                     label(for="email") Email
-                    input#email(type="email" placeholder="Email" name="email")
+                    input#email(type="email" placeholder="Email" name="email" value=user ? user.email : '')
                 div.block-input
                     label(for="password") Contraseña
                     input#password(type="password" placeholder="Contraseña" name="password")

@@ -23,6 +23,7 @@ nodemon - esta dependecia va estar actualizando los cambios en tiempo real en la
 sequelize - Es un ORM, el cual estamos usando en este proyecto
 mysql2 - El gestor de bases de datos
 dotenv - Nos permite configurar o usar las variables de entorno en nuestro código.
+express-validator - Nos permite validar formularios desde el backend
 
 
 //DISTINTO METODOS DE EXPRESS
