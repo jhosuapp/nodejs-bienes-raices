@@ -1,4 +1,8 @@
+//LIBRERÍA PARA VALIDAR CONTENIDO DE LOS CAMPOS
 import { check, validationResult } from 'express-validator';
+//HELPER PARA GENERAR TOKEN
+import { generateId } from '../helpers/Tokens.js';
+//MODELOS PARA GUARDADO DE REGISTRO EN BD
 import User  from '../models/UserModel.js';
 
 //RENDERIZACIÓN DE LA PÁGINA DE LOGIN
@@ -49,11 +53,12 @@ const registerData = async(req, res)=>{
         });
     }
 
+    //GUARDAMOS DATOS EN BD
     const user = await User.create({
         name,
         email,
         password,
-        token: 123
+        token: generateId()
     });
 
     res.json(user);
