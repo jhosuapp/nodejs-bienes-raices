@@ -20,3 +20,10 @@
         background-color: fun.color('tertiary');
     }
 }
+
+@media(max-width: fun.breakpoints('ipad-small')){
+    .btn{
+        height: 4.2rem;
+        font-size: 1.3rem;
+    }
+}

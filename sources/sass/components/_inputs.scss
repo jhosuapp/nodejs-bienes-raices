@@ -26,3 +26,16 @@ label{
     display: block;
     text-align: left;
 }
+
+
+@media(max-width: fun.breakpoints('ipad-small')){
+    input[type="text"],
+    input[type="password"],
+    input[type="email"]{
+        height: 4.5rem;
+        font-size: 1.4rem;
+    }
+    label{
+        font-size: 1.4rem;
+    }
+}

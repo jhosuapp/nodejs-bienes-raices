@@ -111,6 +111,17 @@ label {
   text-align: left;
 }
 
+@media (max-width: 768px) {
+  input[type=text],
+  input[type=password],
+  input[type=email] {
+    height: 4.5rem;
+    font-size: 1.4rem;
+  }
+  label {
+    font-size: 1.4rem;
+  }
+}
 .container {
   width: 90%;
   margin: auto;
@@ -146,6 +157,14 @@ label {
 .form-general .block-input--flex a:hover {
   color: #0A3143;
 }
+.form-general .success img {
+  width: 50%;
+  max-width: 200px;
+  margin: 20px 0;
+}
+.form-general .success p {
+  font-size: 2rem;
+}
 
 .container-form {
   width: 100%;
@@ -161,6 +180,10 @@ label {
   .form-general {
     padding: 2rem 1.5rem;
   }
+  .form-general .success img {
+    width: 100%;
+    max-width: 120px;
+  }
 }
 .ctm-fonts h1 {
   font-size: 3rem;
@@ -169,6 +192,11 @@ label {
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .ctm-fonts h1 {
+    font-size: 2.5rem;
+  }
+}
 .btn {
   width: 100%;
   display: flex;
@@ -191,6 +219,12 @@ label {
   background-color: #0A3143;
 }
 
+@media (max-width: 768px) {
+  .btn {
+    height: 4.2rem;
+    font-size: 1.3rem;
+  }
+}
 .msg-error {
   width: 100%;
   padding: 5px 10px;

@@ -22,6 +22,16 @@
             }
         }
     }
+    .success{
+        img{
+            width: 50%;
+            max-width: 200px;
+            margin: 20px 0;
+        }
+        p {
+            font-size: 2rem;
+        };
+    }
 }
 
 .container-form{
@@ -37,5 +47,11 @@
 @media(max-width: fun.breakpoints('ipad-small')){
     .form-general{
         padding: 2rem 1.5rem;
+        .success{
+            img{
+                width: 100%;
+                max-width: 120px;
+            }
+        }
     }
 }
