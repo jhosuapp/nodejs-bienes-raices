@@ -25,6 +25,10 @@ mysql2 - El gestor de bases de datos
 dotenv (D) - Nos permite configurar o usar las variables de entorno en nuestro código.
 express-validator - Nos permite validar formularios desde el backend
 bcrypt - Nos permite encriptar datos
+nodemailer - Nos permite enviar mails
+
+HERRAMIENTAS UTILES
+Mailtrap - funciona para hacer envíos de testing gratis
 
 
 //DISTINTO METODOS DE EXPRESS
@@ -33,7 +37,6 @@ GET - utilizado para mostrar información
 POST - utilizado para enviar información
 PUT / PATCH - utilizado para actualizar información
 DELETE - utilizado para eliminar información
-
 
 
 //MVC

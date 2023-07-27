@@ -4,6 +4,8 @@ import { check, validationResult } from 'express-validator';
 import { generateId } from '../helpers/Tokens.js';
 //MODELOS PARA GUARDADO DE REGISTRO EN BD
 import User  from '../models/UserModel.js';
+//ENVIO DE MAIL
+import { emailRegister } from '../helpers/Emails.js';
 
 //RENDERIZACIÓN DE LA PÁGINA DE LOGIN
 const formLogin = (req, res)=>{
@@ -59,6 +61,13 @@ const registerData = async(req, res)=>{
         email,
         password,
         token: generateId()
+    });
+
+    //ENVÍO DEL MAIL
+    emailRegister({
+        name: user.name,
+        email: user.email,
+        token: user.token
     });
 
     res.render('auth/register', {
