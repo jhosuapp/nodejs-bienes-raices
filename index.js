@@ -34,7 +34,7 @@ app.use( express.static('public') );
 
 
 //DEFINICIÓN DEL PUERTO Y ARRANQUE DEL PROYECTO
-const port = 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, ()=>{
     console.log(`La app se esta corriendo en el puerto ${port}`);
 });

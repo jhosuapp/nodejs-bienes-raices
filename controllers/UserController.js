@@ -83,6 +83,14 @@ const registerData = async(req, res)=>{
 
 }
 
+//CONFIRMACIÓN DE LA CUENTA
+const confirmAccount = (req, res, next)=>{
+    const { token } = req.params;
+    console.log(token);
+
+    next();
+}
+
 //RENDERIZACIÓN DE LA PÁGINA DE RECUPERAR CONTRASEÑA
 const formPassword = (req, res)=>{
     res.render('auth/recover-password', {
@@ -91,4 +99,4 @@ const formPassword = (req, res)=>{
 }
 
 
-export { formLogin, formRegister, registerData, formPassword}
+export { formLogin, formRegister, registerData, formPassword, confirmAccount}
