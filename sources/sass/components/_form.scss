@@ -25,12 +25,17 @@
     .success{
         img{
             width: 50%;
-            max-width: 200px;
+            max-width: 180px;
             margin: 20px 0;
         }
         p {
             font-size: 2rem;
-        };
+        }
+        &-verify-account{
+            p{
+                margin-bottom: 20px;
+            }
+        }
     }
 }
 
@@ -51,6 +56,9 @@
             img{
                 width: 100%;
                 max-width: 120px;
+            }
+            p{
+                font-size: 1.7rem;
             }
         }
     }

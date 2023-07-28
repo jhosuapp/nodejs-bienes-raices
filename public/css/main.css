@@ -159,11 +159,14 @@ label {
 }
 .form-general .success img {
   width: 50%;
-  max-width: 200px;
+  max-width: 180px;
   margin: 20px 0;
 }
 .form-general .success p {
   font-size: 2rem;
+}
+.form-general .success-verify-account p {
+  margin-bottom: 20px;
 }
 
 .container-form {
@@ -183,6 +186,9 @@ label {
   .form-general .success img {
     width: 100%;
     max-width: 120px;
+  }
+  .form-general .success p {
+    font-size: 1.7rem;
   }
 }
 .ctm-fonts h1 {
@@ -228,7 +234,7 @@ label {
 .msg-error {
   width: 100%;
   padding: 5px 10px;
-  background-color: rgb(185, 60, 60);
+  background-color: #b93c3c;
   color: #fff;
   margin-bottom: 5px;
 }

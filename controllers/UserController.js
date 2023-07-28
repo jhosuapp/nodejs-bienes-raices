@@ -1,7 +1,7 @@
 //LIBRERÍA PARA VALIDAR CONTENIDO DE LOS CAMPOS
 import { check, validationResult } from 'express-validator';
 //HELPER PARA GENERAR TOKEN
-import { generateId } from '../helpers/Tokens.js';
+import { generateToken } from '../helpers/Tokens.js';
 //MODELOS PARA GUARDADO DE REGISTRO EN BD
 import User  from '../models/UserModel.js';
 //ENVIO DE MAIL
@@ -29,7 +29,7 @@ const registerData = async(req, res)=>{
     await check('verifyPass').equals(req.body.password).withMessage('Las contraseñas deben coincidir').run(req);
 
     let result = validationResult(req);
-    //VERIFICAR QUE TODO ESTE BIEN
+    //VERIFICAR QUE TODO LOS CAMPOS HAYAN SIDO RELLENADOS CORRECTAMENTE
     if(!result.isEmpty()){
         return res.render('auth/register', {
             page: 'Crear cuenta',
@@ -60,7 +60,7 @@ const registerData = async(req, res)=>{
         name,
         email,
         password,
-        token: generateId()
+        token: generateToken()
     });
 
     //ENVÍO DEL MAIL
@@ -83,12 +83,27 @@ const registerData = async(req, res)=>{
 
 }
 
-//CONFIRMACIÓN DE LA CUENTA
-const confirmAccount = (req, res, next)=>{
-    const { token } = req.params;
-    console.log(token);
+//CONFIRMACIÓN DE LA CUENTA Y VALIDACIÓN DEL TOKEN
+const confirmAccount = async(req, res)=>{
+    const { token } = await req.params;
+    const userToken = await User.findOne( { where: { token } } );
+    if(userToken){
+        userToken.token = null;
+        userToken.confirmation = true;
+        await userToken.save();
+        return res.render('auth/confirm-account', {
+            page: `¡Tu registro ha sido validado!`,
+            succesfull: true,
+            description: '¡Tu cuenta ya se encuentra activa! inicia sesión para continuar',
+        });
+    }else{
+        return res.render('auth/confirm-account', {
+            page: `¡Token invalido!`,
+            succesfull: false,
+            description: 'El token ingresado no es valido, crea una cuenta para continuar',
+        });
+    }
 
-    next();
 }
 
 //RENDERIZACIÓN DE LA PÁGINA DE RECUPERAR CONTRASEÑA
