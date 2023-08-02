@@ -26,6 +26,18 @@ const validateDataFormPassword = async(req, res)=>{
             errors: [{ msg:'Ingrese email valido' }]
         });
     }
+
+    //VALIDAMOS SI EL CORREO EXISTE
+    const { email } = req.body;
+    const validateEmail = await User.findOne({where: {email}});
+    if(!validateEmail){
+        return res.render(('auth/recover-password'),{
+            page: 'Recuperar contraseña',
+            csrfToken: req.csrfToken(),
+            errors: [{ msg:'El email no se encuentra registrado' }]
+        });
+    }
+
 }
 
 export { formPassword, validateDataFormPassword }
