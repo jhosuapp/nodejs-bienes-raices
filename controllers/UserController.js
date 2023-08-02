@@ -17,7 +17,8 @@ const formLogin = (req, res)=>{
 //RENDERIZACIÓN DE LA PÁGINA DE REGISTRO
 const formRegister = (req, res)=>{
     res.render('auth/register', {
-        page: 'Crear cuenta'
+        page: 'Crear cuenta',
+        csrfToken: req.csrfToken()
     });
 }
 //FORMULARIO DE REGISTRO, GUARDADO DE DATA + VALIDACIONES
@@ -33,6 +34,7 @@ const registerData = async(req, res)=>{
     if(!result.isEmpty()){
         return res.render('auth/register', {
             page: 'Crear cuenta',
+            csrfToken: req.csrfToken(),
             errors: result.array(),
             user: {
                 name: req.body.name,
@@ -47,6 +49,7 @@ const registerData = async(req, res)=>{
     if(userExist){
         return res.render('auth/register', {
             page: 'Crear cuenta',
+            csrfToken: req.csrfToken(),
             errors: [{msg: 'El usuario ya se encuentra registrado'}],
             user: {
                 name: req.body.name,

@@ -55,3 +55,8 @@ El "CONTROLLER" permite la comunicación entre el modelo y la vista
 
 Usar MVC no hará que el performance de nuestro código sea mejor pero sí ayudará a que nuestro código sea fácil de mantener y de entender 
 
+
+//CSRF
+
+PREVIENE SOLICITUDES MALICIOSAS DESDE OTROS DOMINIOS
+

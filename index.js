@@ -1,5 +1,7 @@
 //IMPORTANDO DEPENDENCIA
 import express from 'express';
+import csrf from 'csurf';
+import cookieParser from 'cookie-parser';
 //RUTAS
 import userRoutes from './routes/UserRoutes.js';
 //CONEXIONES
@@ -12,6 +14,12 @@ const app = express();
 app.use( express.urlencoded({
     extended: true
 }));
+
+//HABILITAR COOKIES PARSER
+app.use( cookieParser() );
+
+//HABILITAR CSRF
+app.use( csrf({cookie: true}));
 
 //CONEXION A LA BASE DE DATOS
 try {
