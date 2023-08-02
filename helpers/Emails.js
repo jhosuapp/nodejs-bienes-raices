@@ -3,7 +3,8 @@ import dotenv from 'dotenv';
 
 dotenv.config({path: '.env'});
 
-const emailRegister = async(data)=>{
+//CONFIGURACIÓN DEL EMAIL
+const reUserTransport = ()=>{
     const transport = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: process.env.EMAIL_PORT,
@@ -13,9 +14,15 @@ const emailRegister = async(data)=>{
         }
     });
 
+    return transport;
+}
+
+//CONFIRMACIÓN DE DOS PASOS PARA REGISTRO
+const emailRegister = async(data)=>{
+
     const { name, email, token } = data;
 
-    await transport.sendMail({
+    await reUserTransport().sendMail({
         from: 'Jhosua Penagos',
         to: email,
         subject: 'Confirma tu cuenta para continuar',
@@ -30,5 +37,25 @@ const emailRegister = async(data)=>{
 
 }
 
+//EMAIL PARA RECUPERAR CONTRASEÑA
+const emailRecoverPassword = async(data)=>{
 
-export { emailRegister }
+    const { name, email, token } = data;
+
+    await reUserTransport().sendMail({
+        from: 'Jhosua Penagos',
+        to: email,
+        subject: 'Restablece tu contraseña',
+        text: 'Restablece tu contraseña',
+        html:`
+                <p>Hola ${name}, has solicitado restablecer tu contraseña</p>
+                <p>Sigue el siguiente enlace para generar una contraseña nueva:
+                <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/confirm/${token}">Reestablecer contraseña</a></p>
+                <p>Si tú no solicitaste un cambio de contraseña, puedes ignorar este mensaje</p>
+             `
+    });
+
+}
+
+
+export { emailRegister, emailRecoverPassword }
