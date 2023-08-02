@@ -7,20 +7,14 @@ import User  from '../models/UserModel.js';
 //ENVIO DE MAIL
 import { emailRegister } from '../helpers/Emails.js';
 
-//RENDERIZACIÓN DE LA PÁGINA DE LOGIN
-const formLogin = (req, res)=>{
-    res.render('auth/login', {
-        page: 'Iniciar sesión'
+
+const formRegister = (req, res)=>{
+    res.render('auth/register',{
+        page: 'Crear cuenta',
+        csrfToken: req.csrfToken(),
     });
 }
 
-//RENDERIZACIÓN DE LA PÁGINA DE REGISTRO
-const formRegister = (req, res)=>{
-    res.render('auth/register', {
-        page: 'Crear cuenta',
-        csrfToken: req.csrfToken()
-    });
-}
 //FORMULARIO DE REGISTRO, GUARDADO DE DATA + VALIDACIONES
 const registerData = async(req, res)=>{
     //VALIDACIONES
@@ -109,12 +103,4 @@ const confirmAccount = async(req, res)=>{
 
 }
 
-//RENDERIZACIÓN DE LA PÁGINA DE RECUPERAR CONTRASEÑA
-const formPassword = (req, res)=>{
-    res.render('auth/recover-password', {
-        page: 'Recuperar contraseña'
-    });
-}
-
-
-export { formLogin, formRegister, registerData, formPassword, confirmAccount}
+export { formRegister, registerData, confirmAccount}
