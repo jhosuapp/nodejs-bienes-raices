@@ -1,0 +1,22 @@
+extends ../layout/index
+
+block content
+    section.container.container--center
+        article.ctm-fonts.container-form.ctm-fonts--center
+            h1=page
+
+
+            form.form-general(method="POST" action="/auth/resend-code" id="form-resend-code")
+                    <!--TOKEN-->
+                    input(type="hidden" name="_csrf" value=csrfToken)
+                    <!--CORREO DEL USUARIO-->
+                    input(type="hidden" name="email" id="email")
+                    div.success.success-verify-account
+                        p=msg
+                        img(src="/images/svg/error.svg")
+                        p=description
+                        button(type="submit" class="btn") Reenviar enlace
+
+    <!--SCRIPT PARA INSERTAR VALUES-->
+    script(src="/js/resend-code.js") 
+                

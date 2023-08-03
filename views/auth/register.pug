@@ -12,7 +12,7 @@ block content
                         p(class="msg-error")=error.msg
 
             form.form-general(method="POST" action="/auth/register" noValidate)
-                if(!succesfull)
+                if(!successful)
                     <!--TOKEN-->
                     input(type="hidden" name="_csrf" value=csrfToken)
                     div.block-input
@@ -32,7 +32,7 @@ block content
                         a(href="/auth/recover-password") Olvide mi contraseña
                     div.block-input
                         button.btn(type="submit" value="Crear cuenta")=page
-                if(succesfull)
+                if(successful)
                     div.success
                         p=welcome
                         img(src="/images/svg/check.svg")

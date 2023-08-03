@@ -15,6 +15,18 @@ const formPassword = (req, res)=>{
     });
 }
 
+//VISTA PARA REENVIAR CODIGO
+const resendCode =  (req, res)=>{
+    res.render(('auth/resend-code'),{
+        page: 'Ya se ha enviado un correo',
+        csrfToken: req.csrfToken(),
+        verifyToken: true,
+        description: 'Ya se ha enviado un enlace de acceso a su correo electronico, si lo desea enviar nuevamente de clic en el siguiente botón:',
+    });
+} 
+
+
+
 //VALIDAMOS QUE LOS CAMPOS ESTÉN BIEN Y QUE EL CORREO EXISTA EN BD
 const validateDataFormPassword = async(req, res)=>{
 
@@ -40,7 +52,17 @@ const validateDataFormPassword = async(req, res)=>{
         });
     }
 
-    //GENERAR TOKEN Y ENVIAR EMAIL
+    //VALIDAMOS QUE NO TENGA UN TOKEN ACTIVO
+    if(getDataUser.token){
+        return res.render(('auth/resend-code'),{
+            page: 'Ya se ha enviado un correo',
+            csrfToken: req.csrfToken(),
+            verifyToken: true,
+            description: 'Ya se ha enviado un enlace de acceso a su correo electronico, si lo desea enviar nuevamente de clic en el siguiente botón:',
+        });
+    }
+
+    //GENERAR TOKEN Y GUARDADO EN BASE DE DATOS
     getDataUser.token = generateToken();
     await getDataUser.save();
 
@@ -51,10 +73,28 @@ const validateDataFormPassword = async(req, res)=>{
         token: getDataUser.token
     });
 
-    res.json({
-        status: 'successful'
-    })
+    res.render('auth/recover-password', {
+        successful: true,
+        msg: 'Envío exitoso',
+        description: 'Se ha enviado un enlace de acceso al correo ingresado anteriormente'
+    });
 
 }
 
-export { formPassword, validateDataFormPassword }
+//REENVIAMOS CODIGO DE VERIFICACION
+const resendCodeForm = async(req, res)=>{
+
+    const  { email } = await req.body;
+    const getTokenUser = await User.findOne({where: { email }});
+
+    //ENVÍO DEL EMAIL
+    emailRecoverPassword({
+        name: getTokenUser.name,
+        email: getTokenUser.email,
+        token: getTokenUser.token
+    });
+
+    res.json(req.body);
+}
+
+export { formPassword, validateDataFormPassword, resendCode, resendCodeForm }

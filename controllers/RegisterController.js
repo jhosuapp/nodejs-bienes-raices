@@ -69,7 +69,7 @@ const registerData = async(req, res)=>{
 
     res.render('auth/register', {
         page: `¡Gracias por tu registro!`,
-        succesfull: true,
+        successful: true,
         description: 'Se ha enviado un enlace de acceso para confirmar tu registro',
         welcome: `Te damos la bienvenida ${name}`,
         user: {
@@ -90,13 +90,13 @@ const confirmAccount = async(req, res)=>{
         await userToken.save();
         return res.render('auth/confirm-account', {
             page: `¡Tu registro ha sido validado!`,
-            succesfull: true,
+            successful: true,
             description: '¡Tu cuenta ya se encuentra activa! inicia sesión para continuar',
         });
     }else{
         return res.render('auth/confirm-account', {
             page: `¡Token invalido!`,
-            succesfull: false,
+            successful: false,
             description: 'El token ingresado no es valido, crea una cuenta para continuar',
         });
     }

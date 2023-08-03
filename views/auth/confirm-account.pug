@@ -6,12 +6,12 @@ block content
             h1=page
 
             form.form-general(method="POST" action="/auth/register" noValidate)
-                if(succesfull)
+                if(successful)
                     div.success.success-verify-account
                         img(src="/images/svg/check.svg")
                         p=description
                         a(href="/auth/login").btn Iniciar sesión
-                if(!succesfull)
+                if(!successful)
                     div.success.success-verify-account
                         img(src="/images/svg/error.svg")
                         p=description
