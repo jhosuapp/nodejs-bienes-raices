@@ -4,6 +4,7 @@ import csrf from 'csurf';
 import cookieParser from 'cookie-parser';
 //RUTAS
 import userRoutes from './routes/UserRoutes.js';
+import generalRoutes from './routes/GeneralRoutes.js';
 //CONEXIONES
 import dataBase from './config/DataBase.js';
 
@@ -36,6 +37,7 @@ app.set('views', './views');
 
 //ROUTING
 app.use('/auth', userRoutes);
+app.use('/', generalRoutes);
 
 //CARPETA PUBLICA
 app.use( express.static('public') );
