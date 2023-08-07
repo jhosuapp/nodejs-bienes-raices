@@ -67,15 +67,10 @@ const registerData = async(req, res)=>{
         token: user.token
     });
 
-    res.render('auth/register', {
+    res.render('layout/thanks', {
         page: `¡Gracias por tu registro!`,
-        successful: true,
+        title: `Te damos la bienvenida ${name}`,
         description: 'Se ha enviado un enlace de acceso para confirmar tu registro',
-        welcome: `Te damos la bienvenida ${name}`,
-        user: {
-            name: req.body.name,
-            email: req.body.email
-        }
     });
 
 }

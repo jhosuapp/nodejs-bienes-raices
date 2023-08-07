@@ -73,10 +73,10 @@ const validateDataFormPassword = async(req, res)=>{
         token: getDataUser.token
     });
 
-    res.render('auth/recover-password', {
-        successful: true,
-        msg: 'Envío exitoso',
-        description: 'Se ha enviado un enlace de acceso al correo ingresado anteriormente'
+    res.render('layout/thanks', {
+        page: '',
+        title: 'Envío exitoso',
+        description: 'Se ha enviado un enlace de acceso al correo ingresado anteriormente',
     });
 
 }
@@ -94,7 +94,11 @@ const resendCodeForm = async(req, res)=>{
         token: getTokenUser.token
     });
 
-    res.json(req.body);
+    res.render('layout/thanks', {
+        page: '',
+        title: 'Envío exitoso',
+        description: 'Se ha enviado un enlace de acceso al correo ingresado anteriormente',
+    });
 }
 
 export { formPassword, validateDataFormPassword, resendCode, resendCodeForm }
