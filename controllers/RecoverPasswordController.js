@@ -81,7 +81,7 @@ const validateDataFormPassword = async(req, res)=>{
 
 }
 
-//REENVIAMOS CODIGO DE VERIFICACION
+//REENVIAMOS CODIGO DE VERIFICACION EN CASO DE QUE NO LLEGUÉ
 const resendCodeForm = async(req, res)=>{
 
     const  { email } = await req.body;
@@ -101,4 +101,20 @@ const resendCodeForm = async(req, res)=>{
     });
 }
 
-export { formPassword, validateDataFormPassword, resendCode, resendCodeForm }
+//ACTUALIZACIÓN DE CONTRASEÑA, VALIDACIÓND DE TOKEN
+const verifyToken = async (req, res)=>{
+    const { token } = req.params;
+
+    const verifyTokenPass = await User.findOne({ where: {token} });
+
+    if(!verifyTokenPass){
+        res.render('layout/error', {
+            page: `Reestablecer contraseña`,
+            description: 'Hubo un error al validar tu información, intente de nuevo',
+            link: '/auth/recover-password',  
+            btnCopy: 'Recuperar contraseña'
+        });
+    }
+}
+
+export { formPassword, validateDataFormPassword, resendCode, resendCodeForm, verifyToken }

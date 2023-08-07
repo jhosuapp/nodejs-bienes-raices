@@ -5,8 +5,8 @@ block content
         article.ctm-fonts.container-form.ctm-fonts--center
             h1=page
 
-            form.form-general(method="POST" action="/auth/register" noValidate)
+            form.form-general
                 div.success.success-verify-account
-                    img(src="/images/svg/check.svg")
+                    img(src="/images/svg/error.svg")
                     p=description
-                    a(href="/auth/login").btn Iniciar sesión
+                    a(href=link).btn=btnCopy

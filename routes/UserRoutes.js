@@ -2,7 +2,7 @@ import express from 'express';
 //CONTROLADOR PARA REGISTRO
 import { formRegister, registerData, confirmAccount } from '../controllers/RegisterController.js';
 //CONTROLADOR PARA RECUPERAR CONTRASEÑA
-import { formPassword, validateDataFormPassword, resendCode, resendCodeForm } from '../controllers/RecoverPasswordController.js';
+import { formPassword, validateDataFormPassword, resendCode, resendCodeForm, verifyToken } from '../controllers/RecoverPasswordController.js';
 const router = express.Router();
 //LOGIN
 // router.get('/login', formLogin);
@@ -13,6 +13,9 @@ router.get('/confirm/:token', confirmAccount);
 //RECUPERAR CONTRASEÑA
 router.get('/recover-password', formPassword);
 router.post('/recover-password', validateDataFormPassword);
+router.get('/update-password/:token', verifyToken);
+// router.post('update.passoword')
+
 //REENVIAR CODIGO
 router.get('/resend-code', resendCode);
 router.post('/resend-code', resendCodeForm);

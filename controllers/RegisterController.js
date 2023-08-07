@@ -89,10 +89,11 @@ const confirmAccount = async(req, res)=>{
             description: '¡Tu cuenta ya se encuentra activa! inicia sesión para continuar',
         });
     }else{
-        return res.render('auth/confirm-account', {
+        return res.render('layout/error', {
             page: `¡Token invalido!`,
-            successful: false,
             description: 'El token ingresado no es valido, crea una cuenta para continuar',
+            link: '/auth/register',  
+            btnCopy: 'Crear cuenta'
         });
     }
 
