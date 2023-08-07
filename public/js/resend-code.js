@@ -6,14 +6,14 @@ const ResendCode = (()=>{
         getEmailForm && (getEmailForm.value = localStorage.getItem('emailUser'));
 
         getFormResendCode && getFormResendCode.addEventListener('submit', ()=>{
-            // localStorage.removeItem('emailUser');
+            localStorage.removeItem('emailUser');
         });
     }
 
     //VALIDAMOS QUE EXISTA EL EMAIL EN LOCALSTORAGE
     const redirectRecoverPass = ()=>{
         if(!localStorage.getItem('emailUser')){
-            window.location.href = '/auth/';
+            window.location.href = '/auth/login';
         }
     }
     

@@ -50,7 +50,7 @@ const emailRecoverPassword = async(data)=>{
         html:`
                 <p>Hola ${name}, has solicitado restablecer tu contraseña</p>
                 <p>Sigue el siguiente enlace para generar una contraseña nueva:
-                <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/confirm/${token}">Reestablecer contraseña</a></p>
+                <a href="${process.env.BACKEND_URL}:${process.env.PORT ?? 3000}/auth/update-password/${token}">Reestablecer contraseña</a></p>
                 <p>Si tú no solicitaste un cambio de contraseña, puedes ignorar este mensaje</p>
              `
     });

@@ -1,3 +1,5 @@
+//LIBRERÍA PARA ENCRIPTAR DATOS
+import bcrypt from 'bcrypt';
 //LIBRERÍA PARA VALIDAR CONTENIDO DE LOS CAMPOS
 import { check, validationResult } from 'express-validator';
 //HELPER PARA GENERAR TOKEN
@@ -24,8 +26,6 @@ const resendCode =  (req, res)=>{
         description: 'Ya se ha enviado un enlace de acceso a su correo electronico, si lo desea enviar nuevamente de clic en el siguiente botón:',
     });
 } 
-
-
 
 //VALIDAMOS QUE LOS CAMPOS ESTÉN BIEN Y QUE EL CORREO EXISTA EN BD
 const validateDataFormPassword = async(req, res)=>{
@@ -115,6 +115,44 @@ const verifyToken = async (req, res)=>{
             btnCopy: 'Recuperar contraseña'
         });
     }
+
+    //MOSTRAMOS FORMULARIO PARA ACTUALIZAR CONTRASEÑA
+    res.render('auth/update-password', {
+        page: 'Reestablecer contraseña',
+        csrfToken: req.csrfToken(),
+    });
 }
 
-export { formPassword, validateDataFormPassword, resendCode, resendCodeForm, verifyToken }
+//RENDER DE LA VISTA PARA ACTUALIZAR CONTRASEÑA
+const updatePassword = async (req, res)=>{
+    //VALIDACIONES
+    await check('password').isLength({ min: 6 }).withMessage('La constraseña debe tener mínimo 6 caracteres').run(req);
+    await check('verifyPass').equals(req.body.password).withMessage('Las contraseñas deben coincidir').run(req);
+
+    let result = validationResult(req);
+    //VERIFICAR QUE TODO LOS CAMPOS HAYAN SIDO RELLENADOS CORRECTAMENTE
+    if(!result.isEmpty()){
+        return res.render(`auth/update-password`, {
+            page: 'Reestablecer contraseña',
+            csrfToken: req.csrfToken(),
+            errors: result.array(),
+        });
+    }
+    //OBTENEMOS EL USUARIO ACTUAL
+    const { token } = req.params;
+    const getUser = await User.findOne({ where: {token} });
+    //ACTUALIZAMOS LA CONTRASEÑA Y LA ENCRIPTAMOS
+    const { password } = req.body;
+    const salt = await bcrypt.genSalt(10);
+    getUser.password = await bcrypt.hash( password, salt );
+    getUser.token = null;
+    getUser.save();
+    //POR ULTIMO DAMOS UN MENSAJE DE SUCCES AL USUARIO
+    res.render('layout/thanks',{
+        title: '¡Contraseña reestablecida!',
+        description: 'Se ha reestablecido la contraseña de manera correcta'
+    });
+
+}
+
+export { formPassword, validateDataFormPassword, resendCode, resendCodeForm, verifyToken, updatePassword }
