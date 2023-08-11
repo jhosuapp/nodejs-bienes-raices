@@ -14,7 +14,7 @@ const verifyLogin = async(req, res)=>{
 
     //VALIDACIONES
     await check('email').isEmail().withMessage('Ingrese un email valido').run(req);
-    await check('password').isLength({ min: 6 }).withMessage('La constraseña debe tener mínimo 6 caracteres').run(req);
+    await check('password').notEmpty().withMessage('El campo de contraseña es obligatorio').run(req);
 
     let result = validationResult(req);
     //VERIFICAR QUE TODO LOS CAMPOS HAYAN SIDO RELLENADOS CORRECTAMENTE
@@ -26,18 +26,28 @@ const verifyLogin = async(req, res)=>{
         });
     }
 
-    const { email } = req.body;
+    //BUSCAMOS EL USUARIO POR MEDIO DEL CORREO
+    const { email, password } = req.body;
     const dataUser = await User.findOne({where: { email } });
 
-    if(!dataUser){
+    //VALIDAMOS QUE SE HAYA CONFIRMADO LA CUENTA
+    if(!dataUser.confirmation){
+        return res.render('auth/login', {
+            page: 'Iniciar sesión',
+            csrfToken: req.csrfToken(),
+            errors: [{msg: 'Debe confirmar su cuenta antes de continuar'}],
+        });
+    }
+
+    //VALIDAMOS QUE EL EMAIL Y CONTRASEÑA COINCIDAN
+    const verifyPasswordUser = dataUser.verifyPassword(password);
+    if(!dataUser || !verifyPasswordUser){
         return res.render('auth/login', {
             page: 'Iniciar sesión',
             csrfToken: req.csrfToken(),
             errors: [{msg: 'El usuario o contraseña son incorrectos'}],
         });
     }
-
-    res.json(req.body);
 }
 
 

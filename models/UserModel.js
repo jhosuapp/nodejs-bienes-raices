@@ -27,4 +27,9 @@ const User = dataBase.define('users',{ //INDICAMOS EL NOMBRE DE LA TABLA COMO PR
     }
 });
 
+//METODOS PERSONALIZADOS
+User.prototype.verifyPassword = function(password){
+    return bcrypt.compareSync(password, this.password);
+}
+
 export default User;

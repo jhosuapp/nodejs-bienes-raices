@@ -60,3 +60,10 @@ Usar MVC no hará que el performance de nuestro código sea mejor pero sí ayuda
 
 PREVIENE SOLICITUDES MALICIOSAS DESDE OTROS DOMINIOS
 
+
+//PROTOTYPES
+
+Los prototypes son propiedades de los objetos(metodos y atributos), a los cuales se pueden acceder por medio del objeto padre, adicional a ello
+se pueden crear metodos o atributos propios y añadirlos como un prototype a dicho objeto
+
+
