@@ -1,11 +1,14 @@
 import express from 'express';
+//CONTROLADOR PARA LOGIN
+import { formLogin, verifyLogin } from '../controllers/LoginController.js';
 //CONTROLADOR PARA REGISTRO
 import { formRegister, registerData, confirmAccount } from '../controllers/RegisterController.js';
 //CONTROLADOR PARA RECUPERAR CONTRASEÑA
 import { formPassword, validateDataFormPassword, resendCode, resendCodeForm, verifyToken, updatePassword } from '../controllers/RecoverPasswordController.js';
 const router = express.Router();
 //LOGIN
-// router.get('/login', formLogin);
+router.get('/login', formLogin);
+router.post('/login', verifyLogin);
 //REGISTRO
 router.get('/register', formRegister);
 router.post('/register', registerData);

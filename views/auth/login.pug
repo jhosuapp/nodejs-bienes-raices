@@ -4,7 +4,16 @@ block content
     section.container.container--center
         article.ctm-fonts.container-form.ctm-fonts--center
             h1=page
-            form.form-general
+            
+            <!--MENSAJES DE ERROR-->
+            if(errors)
+                div(class="")
+                    each error in errors
+                        p(class="msg-error")=error.msg
+                        
+            form.form-general(action="/auth/login" method="POST" noValidate)
+                <!--TOKEN-->
+                input(type="hidden" name="_csrf" value=csrfToken)
                 div.block-input
                     label(for="email") Email
                     input#email(type="email" placeholder="Email" name="email")
