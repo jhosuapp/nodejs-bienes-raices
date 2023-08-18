@@ -1,5 +1,6 @@
 import { check, validationResult } from 'express-validator';
 import User from '../models/UserModel.js';
+import { generateJWT } from '../helpers/Tokens.js';
 
 //RENDER DE LA VISTA
 const formLogin = (req, res)=>{
@@ -48,6 +49,11 @@ const verifyLogin = async(req, res)=>{
             errors: [{msg: 'El usuario o contraseña son incorrectos'}],
         });
     }
+
+    //AUTENTICAR USUARIO
+    const token = generateJWT(dataUser.id);
+    console.log(token);
+
 }
 
 
