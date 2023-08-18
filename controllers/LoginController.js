@@ -55,7 +55,7 @@ const verifyLogin = async(req, res)=>{
 
     return res.cookie('_token', token,{
         httpOnly: true
-    }).redirect('/mis-propiedaes');
+    }).redirect('/properties/my-properties');
 
 }
 
