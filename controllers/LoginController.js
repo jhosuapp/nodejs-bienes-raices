@@ -52,7 +52,10 @@ const verifyLogin = async(req, res)=>{
 
     //AUTENTICAR USUARIO
     const token = generateJWT(dataUser.id);
-    console.log(token);
+
+    return res.cookie('_token', token,{
+        httpOnly: true
+    }).redirect('/mis-propiedaes');
 
 }
 
