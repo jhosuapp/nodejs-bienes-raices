@@ -20,6 +20,8 @@ const header = (()=>{
 })();
 
 //EXECUTE GLOBAL FUNCTIONS
-window.addEventListener('load', ()=>{
+const headerLoaderHanlder = ()=>{
     header.getChildsheader();
-});
+}
+
+export { headerLoaderHanlder }
