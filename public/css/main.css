@@ -80,7 +80,8 @@ input[type=search]::-webkit-search-results-decoration {
 
 input[type=text],
 input[type=password],
-input[type=email] {
+input[type=email],
+select {
   height: 5rem;
   outline: inherit;
   border: 0.2rem solid #EFEFEF;
@@ -95,7 +96,8 @@ input[type=email] {
 }
 input[type=text]:focus,
 input[type=password]:focus,
-input[type=email]:focus {
+input[type=email]:focus,
+select:focus {
   border: 0.2rem solid #CECFC9;
 }
 
@@ -110,7 +112,8 @@ label {
 @media (max-width: 768px) {
   input[type=text],
   input[type=password],
-  input[type=email] {
+  input[type=email],
+  select {
     height: 4.5rem;
     font-size: 1.4rem;
   }
@@ -142,6 +145,13 @@ label {
   border-radius: 0.5rem;
   box-shadow: 0 0 0.5rem 0 #0A3143;
   background-color: #fff;
+}
+.form-general .block-flex {
+  display: flex;
+  gap: 10px;
+}
+.form-general .block-flex .block-input {
+  width: 100%;
 }
 .form-general .block-input {
   margin-bottom: 2rem;
@@ -178,6 +188,9 @@ label {
   margin: auto;
   position: relative;
 }
+.container-form--big {
+  max-width: 800px;
+}
 .container-form h1 {
   margin-bottom: 2rem;
 }
@@ -185,6 +198,11 @@ label {
 @media (max-width: 768px) {
   .form-general {
     padding: 2rem 1.5rem;
+  }
+  .form-general .block-flex {
+    gap: 0;
+    flex-direction: column;
+    margin-bottom: 20px;
   }
   .form-general .success img {
     width: 100%;

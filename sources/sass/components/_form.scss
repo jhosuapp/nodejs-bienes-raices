@@ -5,6 +5,13 @@
     border-radius: .5rem;
     box-shadow: 0 0 .5rem 0 fun.color('tertiary');
     background-color: fun.color('white');
+    .block-flex{
+        display: flex;
+        gap: 10px;
+        .block-input{
+            width: 100%;
+        }
+    }
     .block-input{
         margin-bottom: 2rem;
         &:last-child{
@@ -44,6 +51,9 @@
     max-width: 450px;
     margin: auto;
     position: relative;
+    &--big{
+        max-width: 800px;
+    }
     h1{
         margin-bottom: 2rem;
     }
@@ -52,6 +62,11 @@
 @media(max-width: fun.breakpoints('ipad-small')){
     .form-general{
         padding: 2rem 1.5rem;
+        .block-flex{
+            gap: 0;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
         .success{
             img{
                 width: 100%;
