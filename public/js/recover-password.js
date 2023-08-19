@@ -11,7 +11,7 @@ const recoverPassword = (()=>{
         });
     }
     
-    //RETORNAMOS FUNCIONES CON SCOPE GLOBAL
+    //RETURN FUNCIONTS WITH GLOBAL SCOPE
     return {
         getChildsRecoverPassword : function(){
             try{
@@ -21,7 +21,7 @@ const recoverPassword = (()=>{
     }
 })();
 
-//EJECUTAMOS LAS FUNCIONES GLOBALES
+//EXECUTE GLOBAL FUNCTIONS
 window.addEventListener('load', ()=>{
     recoverPassword.getChildsRecoverPassword();
 });

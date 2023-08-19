@@ -10,14 +10,14 @@ const ResendCode = (()=>{
         });
     }
 
-    //VALIDAMOS QUE EXISTA EL EMAIL EN LOCALSTORAGE
+    //VALIDATE EMAIL IN LOCALSTORAGE
     const redirectRecoverPass = ()=>{
         if(!localStorage.getItem('emailUser')){
             window.location.href = '/auth/login';
         }
     }
     
-    //RETORNAMOS FUNCIONES CON SCOPE GLOBAL
+    //RETURN FUNCTIONS GLOBAL SCOPE
     return {
         getChildsResendCode : function(){
             try{
@@ -30,7 +30,7 @@ const ResendCode = (()=>{
     }
 })();
 
-//EJECUTAMOS LAS FUNCIONES GLOBALES
+//EXCEUTE GLOBAL FUNCTIONS
 window.addEventListener('load', ()=>{
     ResendCode.getChildsResendCode();
 });

@@ -1,0 +1,150 @@
+@use '../base/functions' as f;
+@use '../base/variables' as v;
+
+.header{
+    position: fixed;
+    width: 100%;
+    background-color: f.color('white');
+    box-shadow: 0 0 10px 0 f.color('bg-page');
+    padding: 10px 0;
+    z-index: 99;
+    &__content{
+        width: 90%;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: v.$limit-width;
+    }
+    &__logo{
+        width: 100px;
+        img{
+            width: 100%;
+        }
+    }
+    nav{
+        ul{
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        li a{
+            color: f.color('primary');
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            position: relative;
+            &::after{
+                position: absolute;
+                content: "";
+                background-color: f.color('primary');
+                height: 2px;
+                right: 0;
+                bottom: -2px;
+                width: 0;
+                transition: .3s ease width;
+            }
+            &:hover{
+                &::after{
+                    left: 0;
+                    right: unset;
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &__auth{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        a{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            span{
+                font-size: 1.2rem;
+                text-transform: uppercase;
+                color: f.color('primary');
+            }
+        }
+    }
+    &__hamburger{
+        width: 25px;
+        height: 15px;
+        position: relative;
+        display: none;
+        &.active{
+            span{
+                &:first-child{
+                    transform: rotate(45deg);
+                    top: calc(50% - 1px);
+                }
+                &:nth-child(2){
+                    width: 0;
+                }
+                &:last-child{
+                    transform: rotate(-45deg);
+                    bottom: unset;
+                    top: calc(50% - 1px);
+                }
+            }
+        }
+        span{
+            width: 100%;
+            height: 2px;
+            background-color: f.color('primary');
+            display: flex;
+            position: absolute;
+            left: 0;
+            transition: .5s ease;
+            transition-property: transform, width;
+            &:first-child{
+                top: 0;
+            }
+            &:nth-child(2){
+                top: calc(50% - 1px);
+            }
+            &:last-child{
+                bottom: 0;
+            }
+        }
+    }
+}
+
+@media(max-width: f.breakpoints('ipad-big')){
+    .header{
+        &__hamburger{
+            display: block;
+        }
+        &__logo{
+            position: relative;
+            z-index: 1;
+            width: 85px;
+        }
+        &__auth{
+            display: none;
+        }
+        nav{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            left: -100%;
+            top: 0;
+            background-color: f.color('white');
+            transition: 1s ease left;
+            &.active{
+                left: 0;
+            }
+            ul{
+                flex-direction: column;
+            }
+        }
+    }
+}

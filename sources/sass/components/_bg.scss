@@ -1,0 +1,13 @@
+.bg{
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    img{
+        width: 100%;
+        position: relative;
+        bottom: -1px;
+    }
+}
