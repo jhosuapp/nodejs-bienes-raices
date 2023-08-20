@@ -13,7 +13,7 @@ const recoverPassword = (()=>{
     
     //RETURN FUNCIONTS WITH GLOBAL SCOPE
     return {
-        getChildsRecoverPassword : function(){
+        setHandleEvent : function(){
             try{
                 configRecoverPass();
             }catch(err){  }
@@ -23,7 +23,7 @@ const recoverPassword = (()=>{
 
 //EXECUTE GLOBAL FUNCTIONS
 window.addEventListener('load', ()=>{
-    recoverPassword.getChildsRecoverPassword();
+    recoverPassword.setHandleEvent();
 });
 
 

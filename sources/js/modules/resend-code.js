@@ -19,7 +19,7 @@ const ResendCode = (()=>{
     
     //RETURN FUNCTIONS GLOBAL SCOPE
     return {
-        getChildsResendCode : function(){
+        setHandleEvent : function(){
             try{
                 configRecoverPass();
             }catch(err){  }
@@ -32,5 +32,5 @@ const ResendCode = (()=>{
 
 //EXCEUTE GLOBAL FUNCTIONS
 window.addEventListener('load', ()=>{
-    ResendCode.getChildsResendCode();
+    ResendCode.setHandleEvent();
 });

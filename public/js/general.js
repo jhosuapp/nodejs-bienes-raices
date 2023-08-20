@@ -16,7 +16,7 @@
   \**********************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   headerLoaderHanlder: () => (/* binding */ headerLoaderHanlder)\n/* harmony export */ });\nconst header = (()=>{\r\n    //HAMBURGER IN MOBILE\r\n    const headerHamburger = ()=>{\r\n        const getBtnOpenHeader = document.querySelector('#header-hamburger');\r\n        const getNavHeader = document.querySelector('#nav-mobile');\r\n        getBtnOpenHeader.addEventListener('click', ()=>{\r\n            getBtnOpenHeader.classList.toggle('active');\r\n            getNavHeader.classList.toggle('active');\r\n        });\r\n    }\r\n    \r\n    //RETURN FUNCIONTS WITH GLOBAL SCOPE\r\n    return {\r\n        getChildsheader : function(){\r\n            try{\r\n                headerHamburger();\r\n            }catch(err){  }\r\n        }\r\n    }\r\n})();\r\n\r\n//EXECUTE GLOBAL FUNCTIONS\r\nconst headerLoaderHanlder = ()=>{\r\n    header.getChildsheader();\r\n}\r\n\r\n\n\n//# sourceURL=webpack://nodejs-bienes-raices/./sources/js/gen/header.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   loadHeaderHandlers: () => (/* binding */ loadHeaderHandlers)\n/* harmony export */ });\nconst header = (()=>{\r\n    //HAMBURGER IN MOBILE\r\n    const headerHamburger = ()=>{\r\n        const getBtnOpenHeader = document.querySelector('#header-hamburger');\r\n        const getNavHeader = document.querySelector('#nav-mobile');\r\n        getBtnOpenHeader.addEventListener('click', ()=>{\r\n            getBtnOpenHeader.classList.toggle('active');\r\n            getNavHeader.classList.toggle('active');\r\n        });\r\n    }\r\n    \r\n    //RETURN FUNCIONTS WITH GLOBAL SCOPE\r\n    return {\r\n        setHandleEvent : function(){\r\n            try{\r\n                headerHamburger();\r\n            }catch(err){  }\r\n        }\r\n    }\r\n})();\r\n\r\n//SAVE GLOBAL FUNCTIONS\r\nconst loadHeaderHandlers = ()=>{\r\n    header.setHandleEvent();\r\n}\r\n\r\n\n\n//# sourceURL=webpack://nodejs-bienes-raices/./sources/js/gen/header.js?");
 
 /***/ }),
 
@@ -26,7 +26,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \*******************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gen_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gen/header.js */ \"./sources/js/gen/header.js\");\n//IMPORT GENERAL ITEMS\r\n\r\n\r\n\r\n//EXECUTE JS WHEN ARE READY\r\nwindow.addEventListener('load', ()=>{\r\n    (0,_gen_header_js__WEBPACK_IMPORTED_MODULE_0__.headerLoaderHanlder)();\r\n});\n\n//# sourceURL=webpack://nodejs-bienes-raices/./sources/js/general.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _gen_header_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./gen/header.js */ \"./sources/js/gen/header.js\");\n//IMPORT GENERAL ITEMS\r\n\r\n\r\n\r\n//EXECUTE JS WHEN ARE READY\r\nwindow.addEventListener('load', ()=>{\r\n    (0,_gen_header_js__WEBPACK_IMPORTED_MODULE_0__.loadHeaderHandlers)();\r\n});\n\n//# sourceURL=webpack://nodejs-bienes-raices/./sources/js/general.js?");
 
 /***/ })
 

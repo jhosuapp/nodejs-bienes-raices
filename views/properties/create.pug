@@ -11,49 +11,55 @@ block content
                     each error in errors
                         p(class="msg-error")=error.msg
 
-            form.form-general(method="POST" action="/auth/register" noValidate)
-                if(!successful)
-                    <!--TOKEN-->
-                    input(type="hidden" name="_csrf" value=csrfToken)
+            form.form-general.form-create(method="POST" action="/auth/register" noValidate)
+                p Añade información sobre tu propiedad en venta
+                <!--TOKEN-->
+                input(type="hidden" name="_csrf" value=csrfToken)
+                div.block-input
+                    label(for="title") Título del anuncio
+                    input#title(type="text" placeholder="Título del anuncio. Ej. Casa en la playa" name="title") 
+                div.block-flex
                     div.block-input
-                        label(for="title") Título del anuncio
-                        input#title(type="text" placeholder="Título del anuncio. Ej. Casa en la playa" name="title") 
-                    div.block-flex
-                        div.block-input
-                            label(for="category") Categoría
-                            select#category(type="text" name="category") 
-                                option(value="inherit" selected disabled) - selecciona -
-                        div.block-input
-                            label(for="price") Precio
-                            select#price(type="text" name="price") 
-                                option(value="inherit" selected disabled) - selecciona -
-                    div.block-flex
-                        div.block-input
-                            label(for="rooms") Habitaciones
-                            select#rooms(type="text" name="rooms") 
-                                option(value="inherit" selected disabled) - selecciona -
-                                - let i_rooms = 1;
-                                    while i_rooms < 10
-                                        option(value=i_rooms ) #{i_rooms++}
+                        label(for="category") Categoría
+                        select#category(type="text" name="category") 
+                            option(value="inherit" selected disabled) - selecciona -
+                    div.block-input
+                        label(for="price") Precio
+                        select#price(type="text" name="price") 
+                            option(value="inherit" selected disabled) - selecciona -
+                div.block-flex
+                    div.block-input
+                        label(for="rooms") Habitaciones
+                        select#rooms(type="text" name="rooms") 
+                            option(value="inherit" selected disabled) - selecciona -
+                            - let i_rooms = 1;
+                                while i_rooms < 10
+                                    option(value=i_rooms ) #{i_rooms++}
 
-                        div.block-input 
-                            label(for="parking") Estacionamientos
-                            select#parking(type="text" name="parking") 
-                                option(value="inherit" selected disabled) - selecciona -
-                                - let i_parking = 1;
-                                    while i_parking < 6
-                                        option(value=i_parking ) #{i_parking++}
-                        div.block-input
-                            label(for="wc") Baños
-                            select#wc(type="text" name="wc") 
-                                option(value="inherit" selected disabled) - selecciona -
-                                - let i_wc = 1;
-                                    while i_wc < 6
-                                        option(value=i_wc ) #{i_wc++}
-
+                    div.block-input 
+                        label(for="parking") Estacionamientos
+                        select#parking(type="text" name="parking") 
+                            option(value="inherit" selected disabled) - selecciona -
+                            - let i_parking = 1;
+                                while i_parking < 6
+                                    option(value=i_parking ) #{i_parking++}
+                    div.block-input
+                        label(for="wc") Baños
+                        select#wc(type="text" name="wc") 
+                            option(value="inherit" selected disabled) - selecciona -
+                            - let i_wc = 1;
+                                while i_wc < 6
+                                    option(value=i_wc ) #{i_wc++}
+                div.block-input
+                    #map
+                p#set-street
+                input(type="hidden" name="street" id="street")
+                input(type="hidden" name="lat" id="lat")
+                input(type="hidden" name="lng" id="lng")
 
 block scripts
     script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")
     script(src="https://unpkg.com/esri-leaflet@3.0.8/dist/esri-leaflet.js")
     script(src="https://unpkg.com/esri-leaflet-geocoder@2.2.13/dist/esri-leaflet-geocoder.js")
     script(src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-geosearch/2.7.0/bundle.min.js")
+    script(src="/js/map.js") 

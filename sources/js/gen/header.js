@@ -11,7 +11,7 @@ const header = (()=>{
     
     //RETURN FUNCIONTS WITH GLOBAL SCOPE
     return {
-        getChildsheader : function(){
+        setHandleEvent : function(){
             try{
                 headerHamburger();
             }catch(err){  }
@@ -19,9 +19,9 @@ const header = (()=>{
     }
 })();
 
-//EXECUTE GLOBAL FUNCTIONS
-const headerLoaderHanlder = ()=>{
-    header.getChildsheader();
+//SAVE GLOBAL FUNCTIONS
+const loadHeaderHandlers = ()=>{
+    header.setHandleEvent();
 }
 
-export { headerLoaderHanlder }
+export { loadHeaderHandlers }

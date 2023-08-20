@@ -59,6 +59,14 @@
     }
 }
 
+//CREATE PROPERTIES
+.form-create{
+    p{
+        margin-bottom: 20px;
+        color: fun.color('primary');
+    }
+}
+
 @media(max-width: fun.breakpoints('ipad-small')){
     .form-general{
         padding: 2rem 1.5rem;

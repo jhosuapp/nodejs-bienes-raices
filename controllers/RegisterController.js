@@ -85,7 +85,6 @@ const confirmAccount = async(req, res)=>{
         await userToken.save();
         return res.render('auth/confirm-account', {
             page: `¡Tu registro ha sido validado!`,
-            successful: true,
             description: '¡Tu cuenta ya se encuentra activa! inicia sesión para continuar',
         });
     }else{
