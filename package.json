@@ -9,7 +9,8 @@
     "sass": "sass --watch ./sources/sass/main.scss ./public/css/main.css",
     "js": "webpack --watch",
     "dev": "concurrently \"npm run sass\" \"npm run js\"",
-    "db:imports": "node ./seed/Seeder.js -i"
+    "db:import": "node ./seed/Seeder.js -i",
+    "db:delete": "node ./seed/Seeder.js -d"
   },
   "author": "Jhosua Penagos",
   "license": "ISC",
