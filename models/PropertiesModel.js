@@ -1,5 +1,5 @@
 import { DataTypes } from 'sequelize';
-import { dataBase } from '../config/DataBase';
+import dataBase from '../config/DataBase.js';
 
 
 const Properties = dataBase.define('properties',{
@@ -40,6 +40,15 @@ const Properties = dataBase.define('properties',{
     lng: {
         type: DataTypes.STRING,
         allowNull: false
+    },
+    image: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    publish:{
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
     }
 });
 
