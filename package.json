@@ -8,7 +8,8 @@
     "server": "nodemon index.js",
     "sass": "sass --watch ./sources/sass/main.scss ./public/css/main.css",
     "js": "webpack --watch",
-    "dev": "concurrently \"npm run sass\" \"npm run js\""
+    "dev": "concurrently \"npm run sass\" \"npm run js\"",
+    "db:imports": "node ./seed/Seeder.js -i"
   },
   "author": "Jhosua Penagos",
   "license": "ISC",
