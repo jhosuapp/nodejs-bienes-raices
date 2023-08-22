@@ -5,6 +5,7 @@
 input[type="text"],
 input[type="password"],
 input[type="email"],
+textarea,
 select{
     height: 5rem;
     outline: inherit;
@@ -20,6 +21,14 @@ select{
     }
 }
 
+textarea{
+    height: 20rem;
+    max-width: 100%;
+    min-width: 100%;
+    resize: inherit;
+    padding: 2rem;
+}
+
 label{
     font-size: 1.5rem;
     color: fun.color('primary');
@@ -33,9 +42,15 @@ label{
     input[type="text"],
     input[type="password"],
     input[type="email"],
+    textarea,
     select{
         height: 4.5rem;
         font-size: 1.4rem;
+        padding: 0 1.5rem;
+    }
+    textarea{
+        height: 10rem;
+        padding: 1.5rem;
     }
     label{
         font-size: 1.4rem;

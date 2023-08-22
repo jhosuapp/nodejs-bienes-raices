@@ -18,6 +18,9 @@ block content
                 div.block-input
                     label(for="title") Título del anuncio
                     input#title(type="text" placeholder="Título del anuncio. Ej. Casa en la playa" name="title") 
+                div.block-input
+                    label(for="description") Descripción de la propiedad
+                    textarea#description(placeholder="Descripción de la propiedad" name="description")
                 div.block-flex
                     div.block-input
                         label(for="category") Categoría
@@ -37,12 +40,12 @@ block content
                                     option(value=i_rooms ) #{i_rooms++}
 
                     div.block-input 
-                        label(for="parking") Estacionamientos
-                        select#parking(type="text" name="parking") 
+                        label(for="parkings") Estacionamientos
+                        select#parkings(type="text" name="parkings") 
                             option(value="inherit" selected disabled) - selecciona -
-                            - let i_parking = 1;
-                                while i_parking < 6
-                                    option(value=i_parking ) #{i_parking++}
+                            - let i_parkings = 1;
+                                while i_parkings < 6
+                                    option(value=i_parkings ) #{i_parkings++}
                     div.block-input
                         label(for="wc") Baños
                         select#wc(type="text" name="wc") 
