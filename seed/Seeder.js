@@ -2,8 +2,7 @@
 import CategoriesSeeder from './Categories.js';
 import PricesSeeder from './Prices.js';
 //MODELOS
-import CategoriesModel from '../models/CategoriesModel.js';
-import PricesModel from '../models/PricesModel.js';
+import { CategoriesModel, PricesModel  } from '../models/index.js';
 //CONEXION A BD
 import dataBase from '../config/DataBase.js';
 

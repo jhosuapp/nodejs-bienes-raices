@@ -26,10 +26,14 @@ block content
                         label(for="category") Categoría
                         select#category(type="text" name="category") 
                             option(value="inherit" selected disabled) - selecciona -
+                            each category in categories
+                                option(value=category.id)= category.category
                     div.block-input
                         label(for="price") Precio
                         select#price(type="text" name="price") 
                             option(value="inherit" selected disabled) - selecciona -
+                            each price in prices
+                                option(value=price.id)= price.price
                 div.block-flex
                     div.block-input
                         label(for="rooms") Habitaciones
