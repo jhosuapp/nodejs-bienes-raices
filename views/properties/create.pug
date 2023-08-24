@@ -11,29 +11,29 @@ block content
                     each error in errors
                         p(class="msg-error")=error.msg
 
-            form.form-general.form-create(method="POST" action="/auth/register" noValidate)
+            form.form-general.form-create(method="POST" action="/properties/create" noValidate)
                 p Añade información sobre tu propiedad en venta
                 <!--TOKEN-->
                 input(type="hidden" name="_csrf" value=csrfToken)
                 div.block-input
                     label(for="title") Título del anuncio
-                    input#title(type="text" placeholder="Título del anuncio. Ej. Casa en la playa" name="title") 
+                    input#title(type="text" placeholder="Título del anuncio. Ej. Casa en la playa" name="title" value= data ? data.title : '' ) 
                 div.block-input
                     label(for="description") Descripción de la propiedad
-                    textarea#description(placeholder="Descripción de la propiedad" name="description")
+                    textarea#description(placeholder="Descripción de la propiedad" name="description" )=data ? data.description : ''
                 div.block-flex
                     div.block-input
                         label(for="category") Categoría
                         select#category(type="text" name="category") 
                             option(value="inherit" selected disabled) - selecciona -
                             each category in categories
-                                option(value=category.id)= category.category
+                                option(value=category.id selected=data.category ? data.category == category.id ? true : false : null)= category.category
                     div.block-input
                         label(for="price") Precio
                         select#price(type="text" name="price") 
                             option(value="inherit" selected disabled) - selecciona -
                             each price in prices
-                                option(value=price.id)= price.price
+                                option(value=price.id selected= data.price ? data.price == price.id ? true : false : null)= price.price
                 div.block-flex
                     div.block-input
                         label(for="rooms") Habitaciones
@@ -41,7 +41,7 @@ block content
                             option(value="inherit" selected disabled) - selecciona -
                             - let i_rooms = 1;
                                 while i_rooms < 10
-                                    option(value=i_rooms ) #{i_rooms++}
+                                    option(value=i_rooms selected= data.rooms ? data.rooms == i_rooms ? true : false : null) #{i_rooms++}
 
                     div.block-input 
                         label(for="parkings") Estacionamientos
@@ -49,20 +49,23 @@ block content
                             option(value="inherit" selected disabled) - selecciona -
                             - let i_parkings = 1;
                                 while i_parkings < 6
-                                    option(value=i_parkings ) #{i_parkings++}
+                                    option(value=i_parkings selected= data.parkings ? data.parkings == i_parkings ? true : false : null) #{i_parkings++}
                     div.block-input
                         label(for="wc") Baños
                         select#wc(type="text" name="wc") 
                             option(value="inherit" selected disabled) - selecciona -
                             - let i_wc = 1;
                                 while i_wc < 6
-                                    option(value=i_wc ) #{i_wc++}
+                                    option(value=i_wc selected= data.wc ? data.wc == i_wc ? true : false : null) #{i_wc++}
+                p Añade la ubicación de tu propiedad                                    
                 div.block-input
                     #map
-                p#set-street
-                input(type="hidden" name="street" id="street")
-                input(type="hidden" name="lat" id="lat")
-                input(type="hidden" name="lng" id="lng")
+                p#set-street=data ? data.street : ''
+                input(type="hidden" name="street" id="street" value= data ? data.street : '')
+                input(type="hidden" name="lat" id="lat" value= data ? data.lat : '')
+                input(type="hidden" name="lng" id="lng" value= data ? data.lng : '')
+                div.block-input
+                    button.btn(type="submit" value="Crear Propiedad")=page
 
 block scripts
     script(src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js")

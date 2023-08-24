@@ -2,9 +2,12 @@ const map = (()=>{
 
     //CONFIG MAP
     const mapConfig = ()=>{
-        const lat = 4.6078063;
-        const lng = -74.1341417;
-        const map = L.map('map').setView([lat, lng ], 16);
+
+        //LOGICAL OR
+        const lat = document.querySelector('#lng').value || 4.6078063;        
+        const lng = document.querySelector('#lat').value || -74.1341417;
+
+        const map = L.map('map').setView([lat, lng], 16);
         let marker;
     
         //USER PROVIDER GEOCODER
