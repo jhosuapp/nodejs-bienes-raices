@@ -1,8 +1,9 @@
 //SEEDERS
 import CategoriesSeeder from './Categories.js';
 import PricesSeeder from './Prices.js';
+import UserSeeder from './Users.js';
 //MODELOS
-import { CategoriesModel, PricesModel  } from '../models/index.js';
+import { CategoriesModel, PricesModel, UserModel  } from '../models/index.js';
 //CONEXION A BD
 import dataBase from '../config/DataBase.js';
 
@@ -16,7 +17,8 @@ const importData = async ()=>{
         //INSERTAR DATOS
         await Promise.all([
             CategoriesModel.bulkCreate(CategoriesSeeder),
-            PricesModel.bulkCreate(PricesSeeder)
+            PricesModel.bulkCreate(PricesSeeder),
+            UserModel.bulkCreate(UserSeeder)
         ]);
         process.exit();
     }catch(err) {

@@ -72,4 +72,8 @@ se pueden crear metodos o atributos propios y añadirlos como un prototype a dic
 
 Es una de las maneras más famosas para autenticar un usuario
 
+//FALSY TRUSTHY
+
+Son valores que no son booleanos pero al momento de ser evaluados en un entorno booleano puede devolver un true o un false dependiendiendo del valor evaluado
+
 

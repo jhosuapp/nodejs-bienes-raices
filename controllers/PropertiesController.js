@@ -1,8 +1,7 @@
 //LIBRERÍA PARA VALIDAR CONTENIDO DE LOS CAMPOS
 import { check, validationResult } from 'express-validator';
 //MODELOS DE CATEGORIAS Y PRECIOS
-import categoriesModel from '../models/CategoriesModel.js';
-import pricesModel from '../models/PricesModel.js';
+import { CategoriesModel, PricesModel, PropertiesModel  } from '../models/index.js';
 
 
 //HOME
@@ -17,8 +16,8 @@ const admin = (req, res)=>{
 const create = async (req, res)=>{
     //TRAEMOS LAS CATEGORÍAS Y PRECIOS DE LA BD
     const [ categories, prices ] = await Promise.all([
-        categoriesModel.findAll(),
-        pricesModel.findAll(),
+        CategoriesModel.findAll(),
+        PricesModel.findAll(),
     ]);
 
     res.render('properties/create', {
@@ -47,8 +46,8 @@ const saveData = async (req, res)=>{
 
     //TRAEMOS TODOS LOS DATOS DE LA BD
     const [ categories, prices ] = await Promise.all([
-        categoriesModel.findAll(),
-        pricesModel.findAll(),
+        CategoriesModel.findAll(),
+        PricesModel.findAll(),
     ]);
 
     //VALIDAMOS QUE LOS CAMPOS ESTÉN BIEN
@@ -63,6 +62,25 @@ const saveData = async (req, res)=>{
             data: req.body
         });
     }
+
+
+    const { title, description, rooms, parkings, wc, street, lat, lng, price:priceId, category:categoryId } = req.body;
+
+    const propertie = PropertiesModel.create({
+        title,
+        description, 
+        rooms, 
+        parkings, 
+        wc, 
+        street, 
+        lat, 
+        lng, 
+        priceId, 
+        categoryId,
+        image: 'hola',
+        userId: 1,
+    });
+
 
     return res.json(req.body);
 
