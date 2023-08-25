@@ -54,7 +54,8 @@ const verifyLogin = async(req, res)=>{
     const token = generateJWT(dataUser.id);
 
     return res.cookie('_token', token,{
-        httpOnly: true
+        httpOnly: true,
+        expires: 172800000
     }).redirect('/properties/my-properties');
 
 }

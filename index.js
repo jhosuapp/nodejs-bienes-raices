@@ -8,6 +8,8 @@ import generalRoutes from './routes/GeneralRoutes.js';
 import propertiesRoutes from './routes/PropertiesRoutes.js';
 //CONEXIONES
 import dataBase from './config/DataBase.js';
+//MIDDLEWARE
+import UserMiddleware from './middleware/UserMiddleware.js';
 
 //CREAR LA APP
 const app = express();
@@ -38,7 +40,7 @@ app.set('views', './views');
 
 //ROUTING
 app.use('/auth', userRoutes);
-app.use('/properties', propertiesRoutes);
+app.use('/properties', UserMiddleware, propertiesRoutes);
 app.use('/', generalRoutes);
 
 //CARPETA PUBLICA
