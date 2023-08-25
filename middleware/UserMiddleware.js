@@ -17,7 +17,7 @@ const UserMiddleware = async (req, res, next)=>{
         const getUser = await UserModel.scope('deleteData').findByPk(decoded.id);
 
         if(getUser){
-            req.getUser = getUser;
+            req.user = getUser;
         }else{
             return res.redirect('/auth/login');
         }

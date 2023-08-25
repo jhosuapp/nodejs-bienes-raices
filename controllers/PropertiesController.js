@@ -65,8 +65,9 @@ const saveData = async (req, res)=>{
 
 
     const { title, description, rooms, parkings, wc, street, lat, lng, price:priceId, category:categoryId } = req.body;
+    const { id:userId } = req.user;
 
-    const propertie = PropertiesModel.create({
+    const propertie = await PropertiesModel.create({
         title,
         description, 
         rooms, 
@@ -77,12 +78,13 @@ const saveData = async (req, res)=>{
         lng, 
         priceId, 
         categoryId,
+        userId,
         image: 'hola',
-        userId: 1,
     });
 
+    const { id } = propertie;
 
-    return res.json(req.body);
+    return res.redirect(`/properties/add-image/${id}`);
 
 }
 

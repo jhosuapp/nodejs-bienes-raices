@@ -55,7 +55,7 @@ const verifyLogin = async(req, res)=>{
 
     return res.cookie('_token', token,{
         httpOnly: true,
-        expires: 172800000
+        // expires: 172800000
     }).redirect('/properties/my-properties');
 
 }
