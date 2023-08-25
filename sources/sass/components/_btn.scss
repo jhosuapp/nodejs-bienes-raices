@@ -1,4 +1,4 @@
-@use '../base/functions' as fun;
+@use '../base/functions' as f;
 @use '../base/mixin' as mix;
 
 .btn{
@@ -6,8 +6,8 @@
     @include mix.flex();
     height: 4.8rem;
     text-align: center;
-    background-color: fun.color('primary');
-    color: fun.color('white');
+    background-color: f.color('primary');
+    color: f.color('white');
     border-radius: .5rem;
     border: none;
     outline: inherit;
@@ -17,11 +17,20 @@
     cursor: pointer;
     transition: .5s ease background-color;
     &:hover{
-        background-color: fun.color('tertiary');
+        background-color: f.color('tertiary');
+    }
+    &--secondary{
+        height: 3.5rem;
+        font-size: 1.5rem;
+        text-transform: inherit;
+        padding: 0 20px;
+        min-width: 120px;
+        border-radius: 100px;
+        color: f.color('white');
     }
 }
 
-@media(max-width: fun.breakpoints('ipad-small')){
+@media(max-width: f.breakpoints('ipad-small')){
     .btn{
         height: 4.2rem;
         font-size: 1.3rem;

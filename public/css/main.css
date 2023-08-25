@@ -1031,6 +1031,15 @@ label {
 .btn:hover {
   background-color: #0A3143;
 }
+.btn--secondary {
+  height: 3.5rem;
+  font-size: 1.5rem;
+  text-transform: inherit;
+  padding: 0 20px;
+  min-width: 120px;
+  border-radius: 100px;
+  color: #fff;
+}
 
 @media (max-width: 768px) {
   .btn {
@@ -1044,6 +1053,7 @@ label {
   background-color: #b93c3c;
   color: #fff;
   margin-bottom: 5px;
+  font-size: 1.5rem;
 }
 
 body::-webkit-scrollbar {
@@ -1087,7 +1097,8 @@ body::-webkit-scrollbar-track {
   background-color: #fff;
   box-shadow: 0 0 10px 0 #d4dbdf;
   padding: 10px 0;
-  z-index: 99;
+  z-index: 99999;
+  border-bottom: 1px dashed #276E90;
 }
 .header__content {
   width: 90%;
@@ -1132,6 +1143,37 @@ body::-webkit-scrollbar-track {
   right: unset;
   width: 100%;
 }
+.header nav li a.btn--secondary {
+  color: #fff;
+}
+.header nav li a.btn--secondary::after {
+  width: 0;
+}
+.header__categories {
+  position: relative;
+}
+.header__categories:hover .header__categories__content {
+  opacity: 1;
+  pointer-events: inherit;
+}
+.header__categories__content {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s ease opacity;
+  flex-direction: column;
+  width: 200px;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 #d4dbdf;
+  padding: 10px;
+  border-top: 2.5px solid #276E90;
+}
+.header__categories__content a {
+  width: fit-content;
+  padding: 0;
+}
 .header__auth {
   display: flex;
   align-items: center;
@@ -1147,6 +1189,9 @@ body::-webkit-scrollbar-track {
   font-size: 1.2rem;
   text-transform: uppercase;
   color: #276E90;
+}
+.header__auth a.btn--secondary span {
+  color: #fff;
 }
 .header__hamburger {
   width: 25px;
@@ -1190,6 +1235,18 @@ body::-webkit-scrollbar-track {
   .header__hamburger {
     display: block;
   }
+  .header__categories__content {
+    box-shadow: inherit;
+    border: none;
+  }
+  .header__categories:hover .header__categories__content {
+    opacity: 0;
+    pointer-events: inherit;
+  }
+  .header__categories.active .header__categories__content {
+    opacity: 1;
+    pointer-events: inherit;
+  }
   .header__logo {
     position: relative;
     z-index: 1;
@@ -1204,18 +1261,33 @@ body::-webkit-scrollbar-track {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     left: -100%;
     top: 0;
     background-color: #fff;
     transition: 1s ease left;
+    padding: 0 30px;
   }
   .header nav.active {
     left: 0;
   }
+  .header nav li {
+    padding: 10px 0;
+  }
   .header nav ul {
     flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100px;
+  }
+  .header__center nav {
+    align-items: center;
+  }
+  .header__center nav ul {
+    align-items: center;
+    position: initial;
+    gap: 0;
   }
 }
 

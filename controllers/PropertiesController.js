@@ -8,7 +8,6 @@ import { CategoriesModel, PricesModel, PropertiesModel  } from '../models/index.
 const admin = (req, res)=>{
     res.render('properties/admin', {
         page: 'Mis propiedades',
-        enableNav: true
     });
 }
 
@@ -22,7 +21,6 @@ const create = async (req, res)=>{
 
     res.render('properties/create', {
         page: 'Crear propiedad',
-        enableNav: true,
         csrfToken: req.csrfToken(),
         categories,
         prices,
@@ -54,7 +52,6 @@ const saveData = async (req, res)=>{
     if(!result.isEmpty()){
         return res.render('properties/create', {
             page: 'Crear propiedad',
-            enableNav: true,
             csrfToken: req.csrfToken(),
             categories,
             prices,

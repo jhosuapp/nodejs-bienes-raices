@@ -8,12 +8,23 @@ const header = (()=>{
             getNavHeader.classList.toggle('active');
         });
     }
+
+    //LIST CATEGORIES IN MBOILE
+    const headerListMobile = ()=>{
+        const getList = document.querySelector('.header__categories');
+        getList.addEventListener('click', ()=>{
+            getList.classList.toggle('active');
+        });
+    }
     
     //RETURN FUNCIONTS WITH GLOBAL SCOPE
     return {
         setHandleEvent : function(){
             try{
                 headerHamburger();
+            }catch(err){  }
+            try{
+                headerListMobile();
             }catch(err){  }
         }
     }
