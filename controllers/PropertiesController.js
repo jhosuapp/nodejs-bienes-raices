@@ -60,7 +60,7 @@ const saveData = async (req, res)=>{
         });
     }
 
-
+    //DESESTRUCTURAMOS LA RESPUESTA
     const { title, description, rooms, parkings, wc, street, lat, lng, price:priceId, category:categoryId } = req.body;
     const { id:userId } = req.user;
 
@@ -79,11 +79,31 @@ const saveData = async (req, res)=>{
         image: 'hola',
     });
 
+    //REDIRECCIONAMOS A UN ENDPOINT CON EL ID DE LA PROPIEDAD COMO PARAMETRO
     const { id } = propertie;
-
     return res.redirect(`/properties/add-image/${id}`);
 
 }
 
 
-export { admin, create, saveData }
+const addImage = async (req, res, next)=>{
+    //TRAEMOS EL ID DE LA PROPIEDAD 
+    const { id } = req.params;
+    //VALIDAMOS QUE LA PROPIEDAD EXISTA Y NO ESTE PUBLICADA
+    const validatePropertie = await PropertiesModel.findByPk(id);
+    const { publish } = validatePropertie
+    if(!validatePropertie || publish){
+        return res.redirect('/properties/my-properties');
+    }
+    //VALIDAMOS QUE PERTENEZCA AL USUARIO QUE ESTA AUTENTICADO
+    if(validatePropertie.userId !== req.user.id){
+        return res.redirect('/properties/my-properties');
+    }
+    //RENDERIZAMOS LA VISTA
+    res.render('properties/add-image',{
+        page: `Añade la imagen a la propiedad ${req.user.name}`
+    });
+}
+
+
+export { admin, create, saveData, addImage }
