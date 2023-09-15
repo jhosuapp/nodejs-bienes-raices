@@ -11,7 +11,22 @@ block content
                     each error in errors
                         p(class="msg-error")=error.msg
 
-            form.form-general.form-create(method="POST" action="/properties/create" noValidate)
+            form.form-general.form-create(method="POST" action=`/properties/add-image/${validatePropertie.id}` noValidate)
+                <!--TOKEN-->
+                input(type="hidden" name="_csrf" value=csrfToken)
+                div.drop-zone#drop-zone
+                    label(for="image")
+                    span Añade o arrastra una imagen
+                    input#image(type="file", name="image")
                 
+                div.block-input.render-image
+                    img#render-image
+                    div.render-image__remove#remove-image
+                        p Eliminar imagen
+                div.block-input.render-image__error#render-error
+                        p.msg-error Las extensiones permitidas son las siguientes:
 
+                div.block-input
+                    button.btn(type="submit" value="Subir imagen")=page
 block scripts
+    script(src="/js/dropZone.js") 

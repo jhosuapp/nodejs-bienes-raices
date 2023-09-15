@@ -1,0 +1,64 @@
+@use '../base/functions' as fun;
+@use '../base/mixin' as mix;
+
+.drop-zone{
+    position: relative;
+    @include mix.flex;
+    input{
+        position: absolute;
+        width: 100%;
+        height: 200px;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+    label{
+        height: 200px;
+        width: 100%;
+        border: 1.5px dashed fun.color('primary');
+    }
+    span{
+        position: absolute;
+        pointer-events: none;   
+        font-size: 1.5rem;
+        color: fun.color('primary');
+    }
+}
+
+.render-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    img{
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+        object-fit: contain;
+    }
+    &__remove{
+        cursor: pointer;
+        display: none;
+        &.active{
+            display: block;
+        }
+        p{
+            text-decoration: underline;
+            color: fun.color('error');
+            &:hover{
+                text-decoration: none;
+            }
+        }
+    }
+    &__error{
+        p{
+            display: none;
+            color: fun.color('white') !important;
+            &.active{
+                display: block;
+            }
+        }
+    }
+}

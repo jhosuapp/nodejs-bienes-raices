@@ -96,14 +96,20 @@ const addImage = async (req, res, next)=>{
         return res.redirect('/properties/my-properties');
     }
     //VALIDAMOS QUE PERTENEZCA AL USUARIO QUE ESTA AUTENTICADO
-    if(validatePropertie.userId !== req.user.id){
+    if(validatePropertie.userId.toString() !== req.user.id.toString()){
         return res.redirect('/properties/my-properties');
     }
     //RENDERIZAMOS LA VISTA
     res.render('properties/add-image',{
-        page: `Añade la imagen a la propiedad ${req.user.name}`
+        page: 'Añade la imagen a la propiedad',
+        csrfToken: req.csrfToken(),
+        validatePropertie
     });
 }
 
+const saveImage = (req, res)=>{
+    return res.json(req.body);
+}
 
-export { admin, create, saveData, addImage }
+
+export { admin, create, saveData, addImage, saveImage }
