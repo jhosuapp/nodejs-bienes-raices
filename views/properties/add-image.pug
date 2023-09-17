@@ -1,5 +1,6 @@
 extends ../layout/admin
-
+block metatags
+    meta(name="csrf-token" content= csrfToken)
 block content
     section.container.container--center
         article.ctm-fonts.container-form.container-form--big.ctm-fonts--center
@@ -11,13 +12,13 @@ block content
                     each error in errors
                         p(class="msg-error")=error.msg
 
-            form.form-general.form-create(method="POST" action=`/properties/add-image/${validatePropertie.id}` noValidate)
+            form.form-general.form-create(method="POST" action=`/properties/add-image/${validatePropertie.id}?_csrf=${csrfToken}` enctype="multipart/form-data" noValidate)
                 <!--TOKEN-->
                 input(type="hidden" name="_csrf" value=csrfToken)
                 div.drop-zone#drop-zone
                     label(for="image")
                     span Añade o arrastra una imagen
-                    input#image(type="file", name="image")
+                    input(type="file" name="imageProperties" id="imageProperties")
                 
                 div.block-input.render-image
                     img#render-image

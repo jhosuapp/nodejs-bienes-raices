@@ -107,8 +107,10 @@ const addImage = async (req, res, next)=>{
     });
 }
 
-const saveImage = (req, res)=>{
-    return res.json(req.body);
+const saveImage = (req, res, next)=>{
+    res.json({
+        success: true
+    });
 }
 
 

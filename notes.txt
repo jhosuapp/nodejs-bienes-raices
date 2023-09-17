@@ -24,17 +24,18 @@ sequelize - Es un ORM, el cual estamos usando en este proyecto
 mysql2 - El gestor de bases de datos
 dotenv (D) - Nos permite configurar o usar las variables de entorno en nuestro código.
 express-validator - Nos permite validar formularios desde el backend
-bcrypt - Nos permite encriptar datos
+bcrypt - Nos permite encriptar datos unilaterales
 nodemailer - Nos permite enviar mails
 concurrently(D) - Nos permite ejecutar varios scripts del package.json al tiempo
-jsonwebtoken - Librerúa para autenticar al usuario
+jsonwebtoken - Librería para autenticar al usuario y guardar datos del usuario en formato json
+multer - Habilita la subida de archivos
 
 HERRAMIENTAS UTILES
 Mailtrap - funciona para hacer envíos de testing gratis
 
 
 //DISTINTO METODOS DE EXPRESS
-
+]
 GET - utilizado para mostrar información
 POST - utilizado para enviar información
 PUT / PATCH - utilizado para actualizar información

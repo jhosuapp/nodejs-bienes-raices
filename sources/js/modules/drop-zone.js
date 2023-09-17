@@ -37,8 +37,6 @@ const dropZone = (()=>{
             }else{
                 reUseError('Las extensiones permitidas son: jpg, png, webp y jpeg');
             }
-
-            console.log(getDropZone.value);
         });
 
         //Remove image
@@ -54,8 +52,8 @@ const dropZone = (()=>{
     return {
         setHandleEvent : function(){
             try{
-                configDropZone();
-                mostrarImagenes();
+                // configDropZone();
+                // mostrarImagenes();
             }catch(err){  }
         }
     }

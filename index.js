@@ -14,7 +14,7 @@ import UserMiddleware from './middleware/UserMiddleware.js';
 //CREAR LA APP
 const app = express();
 
-//HABILITAR LECTURA DE DATOS EN FORMULARIOS
+// HABILITAR LECTURA DE DATOS EN FORMULARIOS [input type="text, checkbox, radio, password, email, number, select, m"]
 app.use( express.urlencoded({
     extended: true
 }));

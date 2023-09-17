@@ -1,6 +1,8 @@
 import express from 'express';
 //CONTROLADOR PROPIEDADES
 import { admin, create, saveData, addImage, saveImage } from '../controllers/PropertiesController.js';
+//MIDDLEWARE
+import upload from '../middleware/UploadImage.js';
 
 const routerProperties = express.Router();
 
@@ -11,7 +13,7 @@ routerProperties.get('/create', create);
 routerProperties.post('/create', saveData);
 //AÑADIR IMAGEN A LA PROPIEDAD
 routerProperties.get('/add-image/:id', addImage);
-routerProperties.post('/add-image/:id', saveImage);
+routerProperties.post('/add-image/:id', upload.single('imageProperties'), saveImage);
 
 
 export default routerProperties;
