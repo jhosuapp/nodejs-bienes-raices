@@ -2,6 +2,7 @@ const dropZone = (()=>{
 
     //CONFIG
     const configDropZone = ()=>{
+        const getMsgErrorGeneral = document.querySelector('.msg-error');
         const getDropZone = document.querySelector('#drop-zone input');
         const allowExtensions = ['jpg', 'png', 'webp', 'jpeg'];
         const allowSize = 1000000;
@@ -22,8 +23,8 @@ const dropZone = (()=>{
             image.src = '';
             
             //Validate extensiones asset
-            const splitExtension = getFile.name.split('.');
-            const getExtension =  splitExtension.pop();
+            const splitExtension = getFile?.name.split('.');
+            const getExtension =  splitExtension?.pop();
             if(allowExtensions.includes(getExtension)){
                 //Validate size asset
                 if(getFile.size >= allowSize){
@@ -33,6 +34,7 @@ const dropZone = (()=>{
                     image.src = URL.createObjectURL(getFile);
                     getMsgError.classList.remove('active');
                     getRemoveImage.classList.add('active');
+                    getMsgErrorGeneral.classList.add('hidden');
                 }
             }else{
                 reUseError('Las extensiones permitidas son: jpg, png, webp y jpeg');
@@ -47,14 +49,27 @@ const dropZone = (()=>{
         });
     }
 
+    //VALIDATE FORM
+    const validateFormDropZone = ()=>{
+        const getForm = document.querySelector('form');
+        const getMsgError = document.querySelector('.msg-error');
+        const getInputFile = document.querySelector('#drop-zone input');
+        getForm.addEventListener('submit', (e)=>{
+            if(!getInputFile.value.length){
+                e.preventDefault();
+                getMsgError.classList.remove('hidden');
+            }
+        });
+    }
+
     
     //RETURN FUNCIONTS WITH GLOBAL SCOPE
     return {
         setHandleEvent : function(){
             try{
-                // configDropZone();
-                // mostrarImagenes();
-            }catch(err){  }
+                configDropZone();
+                validateFormDropZone();
+            }catch(err){ console.log(err) }
         }
     }
 })();

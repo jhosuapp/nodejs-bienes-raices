@@ -107,7 +107,9 @@ const addImage = async (req, res, next)=>{
     });
 }
 
-const saveImage = (req, res, next)=>{
+const saveImage = async (req, res, next)=>{
+
+    //SI TODO ESTA BIEN RETORNAME ESTA VISTA
     res.json({
         success: true
     });

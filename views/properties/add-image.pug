@@ -7,10 +7,7 @@ block content
             h1=page
 
             <!--MENSAJES DE ERROR-->
-            if(errors)
-                div(class="")
-                    each error in errors
-                        p(class="msg-error")=error.msg
+                p(class="msg-error hidden") Debe añadir una imagen
 
             form.form-general.form-create(method="POST" action=`/properties/add-image/${validatePropertie.id}?_csrf=${csrfToken}` enctype="multipart/form-data" noValidate)
                 <!--TOKEN-->
