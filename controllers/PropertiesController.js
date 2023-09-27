@@ -75,8 +75,7 @@ const saveData = async (req, res)=>{
         lng, 
         priceId, 
         categoryId,
-        userId,
-        image: 'hola',
+        userId
     });
 
     //REDIRECCIONAMOS A UN ENDPOINT CON EL ID DE LA PROPIEDAD COMO PARAMETRO
@@ -86,13 +85,17 @@ const saveData = async (req, res)=>{
 }
 
 
-const addImage = async (req, res, next)=>{
+const addImage = async (req, res)=>{
     //TRAEMOS EL ID DE LA PROPIEDAD 
     const { id } = req.params;
-    //VALIDAMOS QUE LA PROPIEDAD EXISTA Y NO ESTE PUBLICADA
+    //VALIDAMOS QUE LA PROPIEDAD EXISTA
     const validatePropertie = await PropertiesModel.findByPk(id);
-    const { publish } = validatePropertie
-    if(!validatePropertie || publish){
+    if(!validatePropertie){
+        return res.redirect('/properties/my-properties');
+    }
+    //VALIDAMOS QUE LA PROPIEDAD NO ESTA PUBLICADA
+    const { publish } = validatePropertie;
+    if(publish){
         return res.redirect('/properties/my-properties');
     }
     //VALIDAMOS QUE PERTENEZCA AL USUARIO QUE ESTA AUTENTICADO
@@ -108,11 +111,31 @@ const addImage = async (req, res, next)=>{
 }
 
 const saveImage = async (req, res, next)=>{
-
+    //TRAEMOS EL ID DE LA PROPIEDAD 
+    const { id } = req.params;
+    //VALIDAMOS QUE LA PROPIEDAD EXISTA
+    const validatePropertie = await PropertiesModel.findByPk(id);
+    if(!validatePropertie){
+        return res.redirect('/properties/my-properties');
+    }
+    //VALIDAMOS QUE LA PROPIEDAD NO ESTA PUBLICADA
+    const { publish } = validatePropertie;
+    if(publish){
+        return res.redirect('/properties/my-properties');
+    }
+    //VALIDAMOS QUE PERTENEZCA AL USUARIO QUE ESTA AUTENTICADO
+    if(validatePropertie.userId.toString() !== req.user.id.toString()){
+        return res.redirect('/properties/my-properties');
+    }
     //SI TODO ESTA BIEN RETORNAME ESTA VISTA
-    res.json({
-        success: true
-    });
+    try{
+        validatePropertie.image = req.file.filename;
+        validatePropertie.publish = 1;
+
+        await validatePropertie.save();
+
+        return res.redirect('/properties/my-properties');
+    }catch(err){ console.log('error en la actualización de la imagen') }
 }
 
 

@@ -43,6 +43,7 @@ const Properties = dataBase.define('properties',{
     },
     image: {
         type: DataTypes.STRING,
+        defaultValue: false,
         allowNull: false
     },
     publish:{
