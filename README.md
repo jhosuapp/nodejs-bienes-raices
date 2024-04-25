@@ -1,36 +1,36 @@
 # Nodejs + express bienes raíces
 
-Crea y publica tus propiedades
+Create and publish your properties
 
-## Instalación
+## Installation
 
-1. **Clonar el Repositorio**: 
+1. **Clone the Repository**: 
    ```bash
    git clone https://github.com/jhosuapp/nodejs-bienes-raices.git
 
-2. **Instalar dependencias (Se necesita una versión de node mayor a la 1.18.0)**: 
+2. **Install Dependencies (Node version greater than 1.18.0 required):**: 
    ```bash
    npm install 
 
-3. **Correr proyecto**: 
+3. **Run Project:**: 
    ```bash
    npm run start
 
-## Visualizar la Aplicación
+## View the Application
 
-Abre tu navegador y visita `http://localhost:3000` (reemplaza `PORT` con el puerto configurado en tu archivo `.env`) para ver la aplicación en funcionamiento.
+Open your browser and visit  `http://localhost:3000` (replace `PORT` with the port configured in your `.env` file) to see the application in action.
 
-## Estructura del Proyecto
+## Project Structure
 
-- `index.js`: Archivo principal de la aplicación donde se configura Express y se definen las rutas.
-- `routes/`: Carpeta que contiene los archivos de rutas de la aplicación.
-- `controllers/`: Carpeta que contiene los controladores de la aplicación.
-- `models/`: Carpeta que contiene los modelos de la base de datos definidos con Sequelize.
-- `views/`: Carpeta que contiene las vistas de la aplicación, escritas en Pug.
-- `public/`: Carpeta que contiene los archivos estáticos (CSS, imágenes, JavaScript, etc.).
-- `config/`: Carpeta que contiene la configuración de la aplicación, como la configuración de la base de datos.
+- `index.js`: Main file of the application where Express is configured and routes are defined.
+- `routes/`: Folder containing the application's route files.
+- `controllers/`: Folder containing the application's controllers.
+- `models/`: Folder containing the database models defined with Sequelize.
+- `views/`: Folder containing the application's views, written in Pug.
+- `public/`: Folder containing static files (CSS, images, JavaScript, etc.).
+- `config/`: Folder containing the application's configuration, such as database configuration.
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 - Node.js
 - Express.js
@@ -39,10 +39,10 @@ Abre tu navegador y visita `http://localhost:3000` (reemplaza `PORT` con el puer
 - Pug
 - Sequelize
 
-## Contribución
+## Contribution
 
-Si quieres contribuir a este proyecto, ¡eres bienvenido! Puedes abrir un problema o enviar una solicitud de extracción.
+If you want to contribute to this project, you are welcome! You can open an issue or send a pull request.
 
-## Licencia
+## License
 
-Este proyecto está bajo la Licencia MIT.
+This project is under the MIT License.
