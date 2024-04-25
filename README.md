@@ -6,7 +6,7 @@ Crea y publica tus propiedades
 
 1. **Clonar el Repositorio**: 
    ```bash
-   git clone [https://github.com/tu_usuario/tu_proyecto.git](https://github.com/jhosuapp/nodejs-bienes-raices.git)
+   git clone https://github.com/jhosuapp/nodejs-bienes-raices.git
 
 2. **Instalar dependencias (Se necesita una versión de node mayor a la 1.18.0)**: 
    ```bash
