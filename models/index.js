@@ -2,6 +2,7 @@ import PropertiesModel from "./PropertiesModel.js";
 import PricesModel from "./PricesModel.js";
 import CategoriesModel from "./CategoriesModel.js";
 import UserModel from "./UserModel.js";
+import SendEmailsUsers from './SendEmailsModel.js';
 
 
 PropertiesModel.belongsTo(PricesModel);
@@ -12,5 +13,6 @@ export {
     PropertiesModel,
     PricesModel,
     CategoriesModel,
-    UserModel
+    UserModel,
+    SendEmailsUsers
 }
