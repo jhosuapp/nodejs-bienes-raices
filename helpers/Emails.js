@@ -68,12 +68,13 @@ const emailMasive = async(data)=>{
 
     await reUserTransport().sendMail({
         from: 'opinion@alzatuvoz.co',
+        // from: 'jhosuapvll@gmail.com',
         to: 'contactenos@sic.gov.co',
+        // to: 'jhosuapvll@gmail.com',
         subject: 'Intervención como tercero interesado en los procesos No. Radicado 14-99669 – Radicado No. 24-198835 – Radicado No.24-198836',
         html:`
                 <p><b>Atención</b></p>
                 <p><b>Superintendencia de Industria y Comercio (SIC)</b></p>
-                <p>Con documento: ${document_type} ${document_number}</p>
                 <p>
                     Mi nombre es ${name}, con documento de identidad número ${document_type} ${document_number} y mi correo electrónico para notificaciones es ${email}. Me dirijo a ustedes para intervenir como parte interesada en los procesos No. Radicado 14-99669  – Radicado No.24-198836 - Radicado No. 24-198835.
                     La posible restricción de vehículo particular en aplicaciones de movilidad me afectaría de la siguiente manera: ${message}

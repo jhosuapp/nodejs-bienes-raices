@@ -1,12 +1,13 @@
 import { emailMasive } from "../helpers/Emails.js";
 import { SendEmailsUsers  } from '../models/index.js';
 
-const SendEmails = async (req, res, next)=>{
+const SendEmails = async ()=>{
     //get data
     const users = await SendEmailsUsers.findAll();
+    //Get first index with status false
     const firstUserWithFalseStatus = users.findIndex(user => user.status === false);
     let counter = firstUserWithFalseStatus;
-    setInterval(async () => {
+    const interval = setInterval(async () => {
         if (users[counter]){
             if (users[counter].status === false) {
                 // Send email
@@ -22,26 +23,28 @@ const SendEmails = async (req, res, next)=>{
                         email: users[counter].email ? users[counter].email ? users[counter].email : '' : '',
                     }).catch((error)=>{
                         if(error){
-                            console.log(error);
+                            console.log('error en el envion del email',error);
                             users[counter].status = false;
-                            return next();
+                            clearInterval(interval);
                             // counter--;
                         }
                     });
-                    //Save status
+                    //Save status in database
                     await users[counter].save();
                     //Show status
                     console.log('enviado', users[counter].name);
                     counter++;
                     console.log(counter);
                 }catch(err){
-                    console.log(err);
+                    console.log('error en la obtencion de datos', err);
+                    clearInterval(interval);
                 }
+            }else{
+                console.log('se para el intervalo porque llegamos al final')
+                clearInterval(interval);
             }
         }
     }, 10000);
-    //For data
-    res.json({ message: 'Enviando correos...' });
 }
 
-export { SendEmails }
+SendEmails();
